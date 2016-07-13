@@ -1,59 +1,59 @@
 ul#navigation li.external:hover .icon, ul#navigation li.currentmenu .icon{
-	color: #ec46ef;
+	color: #9a9ef6;
 }
 .ul-boxed li {
-	border-left-color:#ec46ef;
+	border-left-color:#9a9ef6;
 }
 ul.ul-card li .dy .year {
-	background-color: #ec46ef;
+	background-color: #9a9ef6;
 }
 ul.ul-dates div.dates span {
-	background-color: #ec46ef;
+	background-color: #9a9ef6;
 }
 ul.timeline li .date {
-	background: #ec46ef;
+	background: #9a9ef6;
 }
 ul.timeline li .data {
-	border-left-color: #ec46ef;
+	border-left-color: #9a9ef6;
 }
 .ul-withdetails li .imageoverlay {
-	background: #ec46ef;
+	background: #9a9ef6;
 }
 .cd-active.cd-dropdown > span {
-	color: #ec46ef;
+	color: #9a9ef6;
 }
 .cd-active.cd-dropdown ul li span:hover {
-	background: #ec46ef;
+	background: #9a9ef6;
 }
 .pitems .pubmain .pubassets {
-	border-top-color:#ec46ef; 
+	border-top-color:#9a9ef6; 
 }
 .pitems .pubmain .pubassets a:hover,.pitems .pubmain .pubassets a:focus,.pitems .pubmain .pubassets a.pubcollapse {
-	background: #ec46ef;
+	background: #9a9ef6;
 }
 .contact-office .icon-huge, .contact-lab .icon-huge {
-	color: #ec46ef;
+	color: #9a9ef6;
 }
 
 /* socpndary color 
 **************************************************/
 ul.ul-card li .dy .degree {
-	background-color: #ef65f2;
+	background-color: #7b80f3;
 }
 ul.ul-dates div.dates span:last-child {
-	background-color: #ef65f2;
+	background-color: #7b80f3;
 }
 ul.timeline li.open .circle {
-	background-color: #ef65f2;
+	background-color: #7b80f3;
 }
 ul.timeline li.open .data {
-	border-color: #ef65f2;
+	border-color: #7b80f3;
 }
 #labp-heads-wrap {
-	background-color: #ef65f2;
+	background-color: #7b80f3;
 }
 #labp-heads-wrap:after{
-	border-top-color: #ef65f2;
+	border-top-color: #7b80f3;
 }
 
 
