@@ -122,14 +122,50 @@ else {
 	}
 }
 
+//sentence 7
+var health = document.getElementById("health").value;health
 
 
+if(document.getElementById('med_h').checked) {
+var sen7 = "";
+}else if(document.getElementById('med_s').checked) {
+var sen7 = "\n\n"+salut+" "+name + " adds that " + pron2 + " cannot manage a stable income due to " +health+".";
+}
 
 //compile
-    document.getElementById("status").value = "Letter updated!";
-    document.getElementById('letter').value = sen0+sen1+sen2+sen3+sen4+sen5+sen6;
+    document.getElementById("status").value = "essay updated!";
+    document.getElementById('essay').value = sen0+sen1+sen2+sen3+sen4+sen5+sen6+sen7;
 }
+
+
+function copyToClipboard(elementId) {
+
+  // Create a "hidden" input
+  var aux = document.createElement("input");
+
+  // Assign it the value of the specified element
+  aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+
+  // Append it to the body
+  document.body.appendChild(aux);
+
+  // Highlight its content
+  aux.select();
+
+  // Copy the highlighted text
+  document.execCommand("copy");
+
+  // Remove it from the body
+  document.body.removeChild(aux);
+
+}
+
+
 </script>
+
+
+
+
  <body> 
 Salutation:
 <input type="radio" name="salut" id="salut_Mr" value="Mr" checked="checked"/>Mr
@@ -167,8 +203,12 @@ salary: <input type="number" name="spo_sa" id="spo_sa" value ="100"/>
 Number of Dependents: 
 children <input type="number" name="children" id="children" value ="1"/>
 parents <input type="number" name="parents" id="parents" value ="1"/>
+<br/>
 
-
+Medical Condition:
+<input type="radio" name="med" id="med_h" value="h" /> healthy
+<input type="radio" name="med" id="med_s" value="s" checked="checked"/> unfit for work
+<input type="text" name="health" id="health" value ="work injury"/>
 
 
 <br/>
@@ -176,12 +216,13 @@ parents <input type="number" name="parents" id="parents" value ="1"/>
 <input type="submit" name="button" id="button1" onclick="myFunction()" value="Generate!" />
 <br/>
 <br/>
-Compiled letter:
+Compiled essay:
 <br>
 <input type="text" name="status" id="status" value="Waiting..." readonly="true" />
-
-<br>
-<textarea id="letter" name="letter" rows="10" cols="50">Blank</textarea>
+<button onclick="copyToClipboard('essay')">Copy to Clipboard</button> <-not functioning
+<br/>
+<textarea id="essay" name="essay" rows="30" cols="100">Blank</textarea>
+<br/>
 
 </body>
  </html>
