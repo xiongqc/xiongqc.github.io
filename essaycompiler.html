@@ -1,0 +1,45 @@
+<html> 
+<head> </head> 
+<script type="text/javascript">
+function myFunction() {
+if(document.getElementById('salut_Mr').checked) {
+  var salut = "Mr"
+}else if(document.getElementById('salut_Mdm').checked) {
+  var salut = "Mdm"
+}
+var name = document.getElementById("name").value;
+var age = document.getElementById("age").value;
+var occupation = document.getElementById("occupation").value;
+var sen1 = salut+" "+name + "," +" aged " + age + " years old," + " is a " +occupation+ "."
+
+    document.getElementById("status").value = "Letter updated!";
+    document.getElementById('letter').value = sen1;
+}
+</script>
+ <body> 
+Salutation:
+Mr<input type="radio" name="salut" id="salut_Mr" value="Mr" checked="checked"/>
+Mdm<input type="radio" name="salut" id="salut_Mdm" value="Mdm" />
+<br/>
+
+Last Name: <input type="text" name="name" id="name" value ="Tan"/>
+<br/>
+
+Age: <input type="number" name="age" id="age" value ="20"/> 
+<br/>
+
+Occupation: <input type="text" name="occupation" id="occupation" value ="teacher"/>
+<br/>
+
+<input type="submit" name="button" id="button1" onclick="myFunction()" value="Generate!" />
+<br/>
+<br/>
+Compiled letter:
+<br>
+<input type="text" name="status" id="status" value="Waiting..." readonly="true" />
+
+<br>
+<textarea id="letter" name="letter" rows="10" cols="50">Blank</textarea>
+
+</body>
+ </html>
