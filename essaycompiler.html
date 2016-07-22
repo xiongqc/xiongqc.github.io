@@ -138,13 +138,13 @@ var sen7 = "\n\n"+salut+" "+name + " adds that " + pron2 + " cannot manage a sta
 }
 
 
-function copyToClipboard(elementId) {
+function copyToClipboard() {
 
   // Create a "hidden" input
   var aux = document.createElement("input");
 
   // Assign it the value of the specified element
-  aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+  aux.setAttribute("value", document.getElementById('essay').value);
 
   // Append it to the body
   document.body.appendChild(aux);
@@ -157,6 +157,8 @@ function copyToClipboard(elementId) {
 
   // Remove it from the body
   document.body.removeChild(aux);
+
+    document.getElementById("status").value = "copy successful!";
 
 }
 
@@ -218,10 +220,10 @@ Medical Condition:
 <br/>
 Compiled essay:
 <br>
-<input type="text" name="status" id="status" value="Waiting..." readonly="true" />
-<button onclick="copyToClipboard('essay')">Copy to Clipboard</button> <-not functioning
+<input type="text" name="status" id="status" value="waiting..." readonly="true" />
+<button onclick="copyToClipboard()">Copy to Clipboard</button>
 <br/>
-<textarea id="essay" name="essay" rows="30" cols="100">Blank</textarea>
+<textarea id="essay" name="essay" rows="20" cols="100">Enter variables and click "Generate!"</textarea>
 <br/>
 
 </body>
