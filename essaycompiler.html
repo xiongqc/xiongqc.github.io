@@ -8,10 +8,15 @@ if(document.getElementById('salut_Mr').checked) {
   var salut = "Mr";
   var pron1 = "He";
   var pron2 = "he";
+  var poss1 = "His";
+  var poss2 = "his";
 }else if(document.getElementById('salut_Mdm').checked) {
   var salut = "Mdm";
-  var pron1= "She";
-  var pron2= "she";
+  var pron1 = "She";
+  var pron2 = "she";
+  var poss1 = "Her";
+  var poss2 = "her";
+
 }
 var name = document.getElementById("name").value;
 
@@ -46,7 +51,7 @@ var marital = "married";
 }else if(document.getElementById('marital_si').checked) {
 var marital = "single";
 }else if(document.getElementById('marital_se').checked) {
-var marital = "separated";
+var marital = "separated from "+poss2+" spouse";
 }else if(document.getElementById('marital_di').checked) {
 var marital = "divorced";
 }else if(document.getElementById('marital_wi').checked) {
@@ -56,46 +61,64 @@ var marital = "widowed";
 
 var sen3 = pron1 + " is "+marital
 
+
 //sentence 4
+var spo_sa = document.getElementById('spo_sa').value;
+
+
+if (marital == "married") {
+	
+	if(document.getElementById('spo_un').checked) {
+		sen4=" but " + poss2 + " spouse is unemployed. ";
+	}else if (document.getElementById('spo_em').checked) {
+		sen4=" and the salary of "+ poss2 + " spouse is $"+spo_sa+". ";
+	}
+
+}else {
+	sen4 =". ";
+}
+
+
+//sentence 5 and 6
 var children = document.getElementById("children").value;
 var parents = document.getElementById("parents").value;
 
 if (children == "0") {
 	if (parents == "0") {
-		sen4 = "";
-		sen5 = ".";
+		sen5 = "";
+		sen6 = "";
 	}
 	else if (parents != "1"){
-		sen4 = " and has to support ";
-		sen5 = parents+" elderly parents.";
+		sen5 = pron1+" also has to support ";
+		sen6 = parents+" elderly parents.";
 	}
 	else {
-		sen4 = " and has to support "
-		sen5 = parents+" elderly parent.";
+		sen5 = pron1+" also has to support "
+		sen6 = parents+" elderly parent.";
 	}
 }
 else if (children != "1"){
-	sen4 = " and has to support "+children+" children";
+	sen5 = pron1+" also has to support "+children+" children";
 	if (parents == "0") {
-		sen5 = ".";
+		sen6 = ".";
 	}
 	else if (parents !="1"){
-		sen5 = " and "+parents+" elderly parents.";
+		sen6 = " and "+parents+" elderly parents.";
 	}
 	else {
-		sen5 = " and "+parents+" elderly parent.";
+		sen6 = " and "+parents+" elderly parent.";
 	}
 }
 else {
-	sen4 = " and has to support "+children+" child";
+	sen5 = pron1+" also has to support "+children+" child";
 	if (parents == "0") {
-		sen5 = ".";
+		sen6 = ".";
 	}
 	else if (parents !="1"){
-		sen5 = " and "+parents+" elderly parents.";
+		sen6 = " and "+parents+" elderly parents.";
 	}
 	else {
-		sen5 = " and "+parents+" elderly parent.";
+		sen6 = " and "+parents+" elderly parent.";
 	}
 }
 
@@ -104,7 +127,7 @@ else {
 
 //compile
     document.getElementById("status").value = "Letter updated!";
-    document.getElementById('letter').value = sen0+sen1+sen2+sen3+sen4+sen5;
+    document.getElementById('letter').value = sen0+sen1+sen2+sen3+sen4+sen5+sen6;
 }
 </script>
  <body> 
@@ -113,7 +136,7 @@ Salutation:
 <input type="radio" name="salut" id="salut_Mdm" value="Mdm" />Mdm
 <br/>
 
-Last Name: <input type="text" name="name" id="name" value ="Gu"/>
+Last Name: <input type="text" name="name" id="name" value ="Tan"/>
 <br/>
 
 Age: <input type="number" name="age" id="age" value ="20"/> 
@@ -135,9 +158,18 @@ Marital Status:
 <input type="radio" name="marital" id="marital_wi" value="wi" /> widowed
 <br/>
 
+Spouse's Occupation:
+<input type="radio" name="spo" id="spo_un" value="un" checked="checked"/> unemployed
+<input type="radio" name="spo" id="spo_em" value="em" /> employed
+salary: <input type="number" name="spo_sa" id="spo_sa" value ="100"/> 
+
+<br/>
 Number of Dependents: 
-children <input type="number" name="children" id="children" value ="0"/>
-parents <input type="number" name="parents" id="parents" value ="0"/>
+children <input type="number" name="children" id="children" value ="1"/>
+parents <input type="number" name="parents" id="parents" value ="1"/>
+
+
+
 
 <br/>
 <br/>
