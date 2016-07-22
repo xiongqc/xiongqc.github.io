@@ -2,24 +2,115 @@
 <head> </head> 
 <script type="text/javascript">
 function myFunction() {
+
+//sentence 0
 if(document.getElementById('salut_Mr').checked) {
-  var salut = "Mr"
+  var salut = "Mr";
+  var pron1 = "He";
+  var pron2 = "he";
 }else if(document.getElementById('salut_Mdm').checked) {
-  var salut = "Mdm"
+  var salut = "Mdm";
+  var pron1= "She";
+  var pron2= "she";
 }
 var name = document.getElementById("name").value;
-var age = document.getElementById("age").value;
-var occupation = document.getElementById("occupation").value;
-var sen1 = salut+" "+name + "," +" aged " + age + " years old," + " is a " +occupation+ "."
 
+
+var sen0 = salut+" "+name + " would like to request for financial assistance. \n\n"
+
+//sentence 1
+
+
+var age = document.getElementById("age").value;
+
+if(document.getElementById('job_un').checked) {
+  var occupation = "unemployed";
+}else if(document.getElementById('job_em').checked) {
+  var occupation = document.getElementById("occupation").value;
+}
+
+var sen1 = salut+" "+name + "," +" aged " + age + " years old," + " is " +occupation+ " ";
+
+//sentence 2
+var salary = document.getElementById("salary").value;
+
+if(document.getElementById('job_un').checked) {
+  var sen2 = "with no income. ";
+}else if(document.getElementById('job_em').checked) {
+  var sen2 = "earning $" + salary + " a month. ";
+}
+
+//sentence 3
+if(document.getElementById('marital_ma').checked) {
+var marital = "married";
+}else if(document.getElementById('marital_si').checked) {
+var marital = "single";
+}else if(document.getElementById('marital_se').checked) {
+var marital = "separated";
+}else if(document.getElementById('marital_di').checked) {
+var marital = "divorced";
+}else if(document.getElementById('marital_wi').checked) {
+var marital = "widowed";
+}
+
+
+var sen3 = pron1 + " is "+marital
+
+//sentence 4
+var children = document.getElementById("children").value;
+var parents = document.getElementById("parents").value;
+
+if (children == "0") {
+	if (parents == "0") {
+		sen4 = "";
+		sen5 = ".";
+	}
+	else if (parents != "1"){
+		sen4 = " and has to support ";
+		sen5 = parents+" elderly parents.";
+	}
+	else {
+		sen4 = " and has to support "
+		sen5 = parents+" elderly parent.";
+	}
+}
+else if (children != "1"){
+	sen4 = " and has to support "+children+" children";
+	if (parents == "0") {
+		sen5 = ".";
+	}
+	else if (parents !="1"){
+		sen5 = " and "+parents+" elderly parents.";
+	}
+	else {
+		sen5 = " and "+parents+" elderly parent.";
+	}
+}
+else {
+	sen4 = " and has to support "+children+" child";
+	if (parents == "0") {
+		sen5 = ".";
+	}
+	else if (parents !="1"){
+		sen5 = " and "+parents+" elderly parents.";
+	}
+	else {
+		sen5 = " and "+parents+" elderly parent.";
+	}
+}
+
+
+
+
+//compile
     document.getElementById("status").value = "Letter updated!";
-    document.getElementById('letter').value = sen1;
+    document.getElementById('letter').value = sen0+sen1+sen2+sen3+sen4+sen5;
 }
 </script>
  <body> 
 Salutation:
-Mr<input type="radio" name="salut" id="salut_Mr" value="Mr" checked="checked"/>
-Mdm<input type="radio" name="salut" id="salut_Mdm" value="Mdm" />
+<input type="radio" name="salut" id="salut_Mr" value="Mr" checked="checked"/>Mr
+<input type="radio" name="salut" id="salut_Mdm" value="Mdm" />Mdm
 <br/>
 
 Last Name: <input type="text" name="name" id="name" value ="Gu"/>
@@ -28,9 +119,28 @@ Last Name: <input type="text" name="name" id="name" value ="Gu"/>
 Age: <input type="number" name="age" id="age" value ="20"/> 
 <br/>
 
-Occupation: <input type="text" name="occupation" id="occupation" value ="teacher"/>
+Occupation: 
+<input type="radio" name="job" id="job_un" value="un"/> unemployed
+<input type="radio" name="job" id="job_em" value="em" checked="checked"/> employed
+<input type="text" name="occupation" id="occupation" value ="a teacher"/>
+Salary: <input type="number" name="salary" id="salary" value ="100"/> 
 <br/>
 
+
+Marital Status:
+<input type="radio" name="marital" id="marital_ma" value="ma" checked="checked"/> married
+<input type="radio" name="marital" id="marital_si" value="si" /> single
+<input type="radio" name="marital" id="marital_se" value="se" /> separated
+<input type="radio" name="marital" id="marital_di" value="di" /> divorced
+<input type="radio" name="marital" id="marital_wi" value="wi" /> widowed
+<br/>
+
+Number of Dependents: 
+children <input type="number" name="children" id="children" value ="0"/>
+parents <input type="number" name="parents" id="parents" value ="0"/>
+
+<br/>
+<br/>
 <input type="submit" name="button" id="button1" onclick="myFunction()" value="Generate!" />
 <br/>
 <br/>
