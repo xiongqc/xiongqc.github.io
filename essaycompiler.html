@@ -83,12 +83,14 @@ if(document.getElementById('salut_Mr').checked) {
   var salut = "Mr";
   var pron1 = "He";
   var pron2 = "he";
+  var pron3 = "him";
   var poss1 = "His";
   var poss2 = "his";
 }else if(document.getElementById('salut_Mdm').checked) {
   var salut = "Mdm";
   var pron1 = "She";
   var pron2 = "she";
+  var pron3 = "her";
   var poss1 = "Her";
   var poss2 = "her";
 
@@ -107,6 +109,8 @@ if(document.getElementById('job_un').checked) {
   var occupation = "unemployed";
 }else if(document.getElementById('job_em').checked) {
   var occupation = document.getElementById("occupation").value;
+}else if(document.getElementById('job_re').checked) {
+  var occupation = "retired";
 }
 
 var sen1 = salut+" "+name + "," +" aged " + age + " years old," + " is " +occupation+ " ";
@@ -118,6 +122,8 @@ if(document.getElementById('job_un').checked) {
   var sen2 = "with no income. ";
 }else if(document.getElementById('job_em').checked) {
   var sen2 = "earning $" + salary + " a month. ";
+}else if(document.getElementById('job_re').checked) {
+  var sen2 = "with no income. ";
 }
 
 //sentence 3
@@ -165,11 +171,11 @@ if (children == "0") {
 	}
 	else if (parents != "1"){
 		sen5 = pron1+" also has to support ";
-		sen6 = parents+" elderly parents.";
+		sen6 = parents+" elderly parents. ";
 	}
 	else {
 		sen5 = pron1+" also has to support "
-		sen6 = parents+" elderly parent.";
+		sen6 = "an elderly parent. ";
 	}
 }
 else if (children != "1"){
@@ -178,39 +184,76 @@ else if (children != "1"){
 		sen6 = ".";
 	}
 	else if (parents !="1"){
-		sen6 = " and "+parents+" elderly parents.";
+		sen6 = " and "+parents+" elderly parents. ";
 	}
 	else {
-		sen6 = " and "+parents+" elderly parent.";
+		sen6 = " and "+"an elderly parent. ";
 	}
 }
 else {
-	sen5 = pron1+" also has to support "+children+" child";
+	sen5 = pron1+" also has to support a child";
 	if (parents == "0") {
 		sen6 = ".";
 	}
 	else if (parents !="1"){
-		sen6 = " and "+parents+" elderly parents.";
+		sen6 = " and "+parents+" elderly parents. ";
 	}
 	else {
-		sen6 = " and "+parents+" elderly parent.";
+		sen6 = " and "+"an elderly parent. ";
 	}
 }
 
 //sentence 7
-var health = document.getElementById("health").value;health
+var health = document.getElementById("health").value;
 
 
 if(document.getElementById('med_h').checked) {
 var sen7 = "";
 }else if(document.getElementById('med_s').checked) {
-var sen7 = "\n\n"+salut+" "+name + " adds that " + pron2 + " cannot manage a stable income due to " +health+".";
+var sen7 = "\n\n"+salut+" "+name + " adds that " + pron2 + " cannot manage a stable income due to " +health+". ";
+}
+
+var fees = document.getElementById('fees').value;
+
+if(fees == "0") {
+var sen72 = "";
+}else {
+var sen72 = "The medical treatments resulted in an outstanding bill of $" +fees+". ";
+}
+
+
+
+//sentence 8
+if(document.getElementById('childless').checked) {
+var sen8 = "\n\nDespite "+poss2+" old age, "+salut+" "+name+" has no adult child to depend on for financial support. ";
+}else {
+var sen8 = "";
+}
+
+if(document.getElementById('pl_child').checked) {
+var plchild = "adult children";
+var plchild2 = "children";
+var vbchild = "are";
+}else {
+var plchild = "an adult child";
+var plchild2 = "child";
+var vbchild = "is";
+}
+
+
+
+//sentence 9
+if(document.getElementById('unfilial').checked) {
+var sen9 = "\n\nDespite having "+plchild+" who "+vbchild+" working, "+salut+" "+name+" is not receiving any financial support from said "+plchild2+". ";
+}else {
+var sen9 = "";
 }
 
 //compile
     document.getElementById("status").value = "essay updated!";
-    document.getElementById('essay').value = sen0+sen1+sen2+sen3+sen4+sen5+sen6+sen7;
+    document.getElementById('essay').value = sen0+sen1+sen2+sen3+sen4+sen5+sen6+sen7+sen72+sen8+sen9;
 }
+
 
 
 function copyToClipboard() {
@@ -259,6 +302,7 @@ Age: <input type="number" name="age" id="age" value ="20"/>
 <br/>
 Occupation: 
 <input type="radio" name="job" id="job_un" value="un"/> unemployed
+<input type="radio" name="job" id="job_re" value="re"/> retired
 <input type="radio" name="job" id="job_em" value="em" checked="checked"/> employed
 <input type="text" name="occupation" id="occupation" value ="a teacher"/>
 Salary: <input type="number" name="salary" id="salary" value ="100"/> 
@@ -285,10 +329,26 @@ parents <input type="number" name="parents" id="parents" value ="1"/>
 <br/>
 Medical Condition:
 <input type="radio" name="med" id="med_h" value="h" /> healthy
-<input type="radio" name="med" id="med_s" value="s" checked="checked"/> unfit for work
-<input type="text" name="health" id="health" value ="work injury"/>
+<input type="radio" name="med" id="med_s" value="s" checked="checked"/> 
+unfit for work <input type="text" name="health" id="health" value ="work injury"/>
+outstanding medical fees<input type="number" name="fees" id="fees" value ="0"/>
 <br/>
 <br/>
+
+Elderly?
+<input type="radio" name="elderly" id="ntold" value="ntold" checked="checked"/> no / yes, but financially supported by children
+<input type="radio" name="elderly" id="childless" value="childless"/> yes, but childless
+<input type="radio" name="elderly" id="unfilial" value="unfilial" />yes, but receives no support from working child (plural?<input type="checkbox" name="pl_child" value="pl_child" id="pl_child"/>)
+<br/>
+<br/>
+
+(not functional) Debts: 
+bank<input type="number" name="bank" id="bank" value ="0"/>
+outstanding bills<input type="number" name="bills" id="bills" value ="0"/>
+
+<br/>
+<br/>
+
 
 <input type="submit" name="button" id="button1" onclick="myFunction()" value="Generate!" />
 <br/>
