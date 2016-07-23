@@ -218,7 +218,7 @@ var fees = document.getElementById('fees').value;
 if(fees == "0") {
 var sen72 = "";
 }else {
-var sen72 = "The medical treatments resulted in an outstanding bill of $" +fees+". ";
+var sen72 = "The medical treatments resulted in an outstanding bill of around $" +fees+". ";
 }
 
 
@@ -249,9 +249,19 @@ var sen9 = "\n\nDespite having "+plchild+" who "+vbchild+" working, "+salut+" "+
 var sen9 = "";
 }
 
+//sentence 10
+var debt = document.getElementById('debt').value;
+
+if(debt != "0") {
+var sen10 = "\n\nGiven these circumstances, "+salut+" "+name+" also has difficulties financing "+poss2+" bills and loans, and has accumulated a debt of more than $"+debt+".";
+}else {
+var sen10 = "";
+}
+
+
 //compile
     document.getElementById("status").value = "essay updated!";
-    document.getElementById('essay').value = sen0+sen1+sen2+sen3+sen4+sen5+sen6+sen7+sen72+sen8+sen9;
+    document.getElementById('essay').value = sen0+sen1+sen2+sen3+sen4+sen5+sen6+sen7+sen72+sen8+sen9+sen10;
 }
 
 
@@ -342,9 +352,10 @@ Elderly?
 <br/>
 <br/>
 
-(not functional) Debts: 
-bank<input type="number" name="bank" id="bank" value ="0" step = "100"/>
-outstanding bills<input type="number" name="bills" id="bills" value ="0" step = "100"/>
+Total Debts: 
+<input type="number" name="debt" id="debt" value ="0" step = "100"/>
+
+
 
 <br/>
 <br/>
