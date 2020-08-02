@@ -86,25 +86,34 @@
                                 <div class="text">About Me</div>
                               </a>
                             </li>  
-                            
+                            <!--
                             <li>
                               <a href="#research">
                                 <div class="icon icon-book"></div>
                                 <div class="text">Research</div>
                               </a>
-                            </li> 
+                            </li>
+                            -->
+                            <li>
+                              <a href="#publications">
+                                <div class="icon icon-edit"></div>
+                                <div class="text">Publications</div>
+                              </a>
+                            </li>  
                             <li>
                               <a href="#contact">
                                 <div class="icon icon-calendar"></div>
                                 <div class="text">Contact</div>
                               </a>
                             </li>
+                            <!--
                             <li class="external">
                               <a href="xiongqc.github.io/cv/CV_Qiancheng_Xiong caa 050118.pdf" download>
                                   <div class="icon icon-download-alt"></div>
                                   <div class="text">Curricula Vitae</div>
                               </a>
                             </li>
+                            -->
                         </ul>
                     </div>        
                 </div>
@@ -205,7 +214,16 @@
                                             <h3>Education</h3>
                                         </div>
                                         <ul class="ul-card">
-                                           <li>
+                                            <li>
+                                                <div class="dy">
+                                                    <span class="degree">M.Phil.</span><span class="year">2020</span>
+                                                </div>
+                                                <div class="description">
+                                                    <p class="waht">Master of Philosophy in Cell Biology</p>
+                                                    <p class="where">Yale University</p>
+                                                </div>
+                                            </li>
+                                            <li>
                                                 <div class="dy">
                                                     <span class="degree">B.A.</span><span class="year">2016</span>
                                                 </div>
@@ -230,7 +248,7 @@
                                                     <span class="degree">Languages</span>
                                                 </div>
                                                 <div class="description">
-                                                    <p class="waht">Higher Chinese</p>
+                                                    <p class="waht">Chinese</p>
                                                     <p class="where">GCE O-Level Higher Chinese</p> 
                                                 </div>
 							
@@ -297,8 +315,8 @@
                             </div>
                         </div>                            
                     </div>
-                </div>
-
+                </div>  
+                <!--
                 <div id="research" class="page">
                     <div class="pageheader">
 
@@ -326,7 +344,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="pagecontents">
                         <div class="section color-2">
                             <div class="section-container">
@@ -436,6 +454,113 @@
                                 </div>
                             </div>
                         </div>    
+                    </div>
+                </div>
+                -->
+                <div id="publications" class="page">
+                    <div class="page-container">
+                        <div class="pagecontents">
+                            <div class="headercontent">
+                                <div class="section-container">
+                                    <h2 class="title">Publications</h2>
+                                </div>
+                                <div class="section color-1" id="filters">
+                                    <div class="section-container">
+                                        <div class="row">
+                                            
+                                            <div class="col-md-3">
+                                                <h3>Filter by type:</h3>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select id="cd-dropdown" name="cd-dropdown" class="cd-select">
+                                                    <option class="filter" value="all" selected>All types</option>
+                                                    <option class="filter" value="jpaper">Journal Papers</option>
+                                                    <option class="filter" value="cpaper">Conference Papers</option>
+                                                    <option class="filter" value="bookchapter">Book Chapters</option>
+                                                    <option class="filter" value="book">Books</option>
+                                                    <!-- <option class="filter" value="report">Reports</option>
+                                                    <option class="filter" value="tpaper">Technical Papers</option> -->
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="col-md-3" id="sort">
+                                                <span>Sort by year:</span>
+                                                <div class="btn-group pull-right"> 
+
+                                                    <button type="button" data-sort="data-year" data-order="desc" class="sort btn btn-default"><i class="icon-sort-by-order"></i></button>
+                                                    <button type="button" data-sort="data-year" data-order="asc" class="sort btn btn-default"><i class="icon-sort-by-order-alt"></i></button>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="section color-2" id="pub-grid">
+                                <div class="section-container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="pitems">
+                                                <div class="item mix jpaper" data-year="2020">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+                                                            
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="icon-expand-alt"></i>
+                                                            </a>
+                                                            <a href="https://doi.org/10.1002/anie.201915555" class="tooltips" title="External link" target="_blank">
+                                                                <i class="icon-external-link"></i>
+                                                            </a>
+                                                            <!--
+                                                            <a href="#.pdf" class="tooltips" title="Download" target="_blank">
+                                                                <i class="icon-cloud-download"></i>
+                                                            </a>
+                                                            -->
+                                                        </div>
+
+                                                        <h4 class="pubtitle">DNA Origami Post‐Processing by CRISPR‐Cas12a</h4>
+                                                        <div class="pubauthor"><strong>Qiancheng Xiong</strong>, <strong>Chun Xie</strong>, Zhao Zhang, Longfei Liu, John T Powell, Qi Shen, Chenxiang Lin</div>
+                                                        <div class="pubcite"><span class="label label-success">Journal Paper</span>Angewandte Chemie International Edition in English, Volume 59, Issue 10, 02 March 2020, Pages 3956-3960</div>
+                                                        
+                                                    </div>
+                                                    <div class="pubdetails">
+                                                        <h4>Abstract</h4>
+                                                        <p>Customizable nanostructures built through the DNA‐origami technique hold tremendous promise in nanomaterial fabrication and biotechnology. Despite the cutting‐edge tools for DNA‐origami design and preparation, it remains challenging to separate structural components of an architecture built from—thus held together by—a continuous scaffold strand, which in turn limits the modularity and function of the DNA‐origami devices. To address this challenge, here we present an enzymatic method to clean up and reconfigure DNA‐origami structures. We target single‐stranded (ss) regions of DNA‐origami structures and remove them with CRISPR‐Cas12a, a hyper‐active ssDNA endonuclease without sequence specificity. We demonstrate the utility of this facile, selective post‐processing method on DNA structures with various geometrical and mechanical properties, realizing intricate structures and structural transformations that were previously difficult to engineer. Given the biocompatibility of Cas12a‐like enzymes, this versatile tool may be programmed in the future to operate functional nanodevices in cells.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="item mix jpaper" data-year="2019">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+                                                            
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="icon-expand-alt"></i>
+                                                            </a>
+                                                            <a href="https://doi.org/10.1038/s41589-019-0325-3" class="tooltips" title="External link" target="_blank">
+                                                                <i class="icon-external-link"></i>
+                                                            </a>
+                                                            <!--
+                                                            <a href="#.pdf" class="tooltips" title="Download" target="_blank">
+                                                                <i class="icon-cloud-download"></i>
+                                                            </a>
+                                                            -->
+                                                        </div>
+
+                                                        <h4 class="pubtitle">A Programmable DNA-Origami Platform for Studying Lipid Transfer between Bilayers</h4>
+                                                        <div class="pubauthor"><strong>Xin Bian</strong>, <strong>Zhao Zhang</strong>, Qiancheng Xiong, Pietro De Camilli, Chenxiang Lin</div>
+                                                        <div class="pubcite"><span class="label label-success">Journal Paper</span>Nature Chemical Biology, Volume 15, Issue 8, 18 July 2019, Pages 830–837</div>
+                                                        
+                                                    </div>
+                                                    <div class="pubdetails">
+                                                        <h4>Abstract</h4>
+                                                        <p>Non-vesicular lipid transport between bilayers at membrane contact sites plays important physiological roles. Mechanistic insight into the action of lipid-transport proteins localized at these sites requires determination of the distance between bilayers at which this transport can occur. Here we developed DNA-origami nanostructures to organize size-defined liposomes at precise distances and used them to study lipid transfer by the synaptotagmin-like mitochondrial lipid-binding protein (SMP) domain of extended synaptotagmin 1 (E-Syt1). Pairs of DNA-ring-templated donor and acceptor liposomes were docked through DNA pillars, which determined their distance. The SMP domain was anchored to donor liposomes via an unstructured linker, and lipid transfer was assessed via a Förster resonance energy transfer (FRET)-based assay. We show that lipid transfer can occur over distances that exceed the length of an SMP dimer, which is compatible with the shuttle model of lipid transport. The DNA nanostructures developed here can also be adapted to study other processes occurring where two membranes are closely apposed to each other.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="contact" class="page stellar">
