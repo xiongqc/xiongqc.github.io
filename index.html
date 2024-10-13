@@ -2,17 +2,35 @@
 <html lang="en">
     <head>
         <title>Qiancheng Xiong</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-        <meta name="description" content="Qiancheng Xiong's profile page" />
-        <meta name="keywords" content="Qiancheng, Xiong, A*STAR, Cambridge, qx217, Qian Cheng, Qiancheng Xiong, Xiong Qian Cheng, Xiong Qiancheng, Qian Cheng Xiong, QC, qcxiong, QC Xiong, Q Xiong, XQC" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Profile page of Qiancheng Xiong, researcher at The Wyss Institute for Biologically Inspired Engineering at Harvard University.">
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <meta name="msvalidate.01" content="0477ED63E0C6D968BB8B595E3C610279" />
+        <meta http-equiv="Content-Security-Policy" content="
+          default-src 'self';
+          script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://code.jquery.com https://cdnjs.cloudflare.com https://stackpath.bootstrapcdn.com;
+          style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com;
+          font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+          img-src 'self' data:;
+          connect-src 'self';
+          object-src 'none';
+        ">
+
+
+
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
 
         <script type="application/ld+json">
         {
@@ -29,60 +47,90 @@
           ],
           "worksFor": {
             "@type": "CollegeOrUniversity",
-            "name": "Yale University"
+            "name": "The Wyss Institute for Biologically Inspired Engineering at Harvard University"
           }  
         }
         </script>
 
         <!--CSS styles-->
         <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">  
-        <link rel="stylesheet" href="css/perfect-scrollbar-0.4.5.min.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+
+        <!-- Perfect Scrollbar CSS from CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.5/css/perfect-scrollbar.min.css">
+
+
+        <!-- Magnific Popup CSS from CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+        
+        <!-- Custom CSS Files -->
         <link rel="stylesheet" href="css/style.css">
         <link id="theme-style" rel="stylesheet" href="css/styles/blue.css">
         <!--/CSS styles-->
 	    
         <!--Javascript files-->
-        <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
-        <script type="text/javascript" src="js/TweenMax.min.js"></script>
-        <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
-        <script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
-        
-        <script type="text/javascript" src="js/modernizr.custom.63321.js"></script>
-        <script type="text/javascript" src="js/jquery.dropdownit.js"></script>
 
-        <script type="text/javascript" src="js/jquery.stellar.min.js"></script>
-        <script type="text/javascript" src="js/ScrollToPlugin.min.js"></script>
+        <!-- jQuery (Latest version from CDN) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
 
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <!-- Bootstrap JS (Latest version from CDN) -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" defer></script>
 
-        <script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+        <!-- GSAP (TweenMax and ScrollToPlugin) from CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js" defer></script>
 
-        <script type="text/javascript" src="js/masonry.min.js"></script>
+        <!-- jQuery Plugins from CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.stellar/0.6.2/jquery.stellar.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" defer> 
+        </script>
 
-        <script type="text/javascript" src="js/perfect-scrollbar-0.4.5.with-mousewheel.min.js"></script>
+        <!-- Modernizr (Custom build; keep local if necessary) -->
+        <script src="js/modernizr.custom.63321.js" defer></script>
+        <script src="js/jquery.mixitup.min.js" defer></script>
+        <script src="js/perfect-scrollbar-0.4.5.with-mousewheel.min.js" defer></script>
 
-        <script type="text/javascript" src="js/magnific-popup.js"></script>
-        <script type="text/javascript" src="js/custom.js"></script>
+        <!-- Plugins not available via CDN (Keep local) -->
+        <script src="js/jquery.carouFredSel-6.2.1-packed.js" defer></script>
+        <script src="js/jquery.dropdownit.js" defer></script>
+        <script src="js/perfect-scrollbar.min.js" defer></script>
+
+        <!-- Custom scripts -->
+        <script src="js/custom.js" defer></script>
+
         <!--/Javascript files-->
 
 
-        
-	    
-	<!--Google Analytics-->
-	<script>
- 	 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
- 	 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
- 	 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
- 	 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<!-- Open Graph Tags -->
+<meta property="og:title" content="Qiancheng Xiong">
+<meta property="og:description" content="Profile page of Qiancheng Xiong, researcher at The Wyss Institute.">
+<meta property="og:image" content="https://www.qcxiong.com/img/qiancheng-xiong.jpg">
+<meta property="og:url" content="https://www.qcxiong.com/">
+<meta property="og:type" content="profile">
 
- 	 ga('create', 'UA-92395947-1', 'auto');
- 	 ga('send', 'pageview');
-	</script>
-	<!--/Google Analytics-->
+<!-- Twitter Card Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Qiancheng Xiong">
+<meta name="twitter:description" content="Profile page of Qiancheng Xiong, researcher at The Wyss Institute.">
+<meta name="twitter:image" content="https://www.qcxiong.com/img/qiancheng-xiong.jpg">
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q39F2LW18V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q39F2LW18V');
+</script>
+
 	    
-           </head>
+</head>
+
     <body>
 
         <div id="wrapper">
@@ -95,7 +143,8 @@
                             <div class="portrate hidden-xs"></div>
                             <div class="title">
                                 <h2>Qiancheng Xiong</h2>
-                                <h3>Yale University</h3>
+                                <h3>Wyss Institute</h3> 
+                                <h3>Harvard University</h3>
                             </div>
                             
                         </div>
@@ -168,7 +217,7 @@
                                     
                                     <div class="col-sm-12 col-md-7">
                                         <h3 class="title">Biography</h3>
-                                        <p>Qiancheng graduated from the University of Cambridge with a major in Genetics and worked as a Research Officer at the Institute of Molecular and Cell Biology (A*STAR, Singapore). He is a graduate student at Yale University and studies in the Biological and Biomedical Sciences (BBS) doctoral program. Outside the laboratory, he also experiments with coffee and cakes.</p>
+                                        <p>I am a Research Fellow in the William Shih Lab at the Wyss Institute and Dana-Farber Cancer Institute, where my research primarily focuses on advancing RNA delivery methodologies through the innovative use of nucleic acid origami nanotechnology. I hold a PhD in Cell Biology from Yale University and a BA in Natural Sciences from Cambridge University.</p>
                                     </div>  
                                     
                                 </div>
@@ -186,6 +235,19 @@
                                         </div>
                                         <ul class="ul-dates">
                                         
+                                            <li>
+                                                <div class="dates">
+                                                    <span>Present</span>
+                                                    <span>2023</span>
+                                                </div>
+                                                <div class="content">
+                                                    <h4>Research Fellow</h4>
+                                                    <p><em>Harvard University</em>, The Wyss Institute for Biologically Inspired Engineering</p>
+                                                    <p><em>Harvard Medical School</em>, Dana-Farber Cancer Institute</p>
+                                                </div>
+                                            </li>
+
+
                                             <li>
                                                 <div class="dates">
                                                     <span>2017</span>
@@ -238,10 +300,10 @@
                                         <ul class="ul-card">
                                             <li>
                                                 <div class="dy">
-                                                    <span class="degree">Ph.D.</span><span class="year">Expected 2023</span>
+                                                    <span class="degree">Ph.D.</span><span class="year">2023</span>
                                                 </div>
                                                 <div class="description">
-                                                    <p class="waht">Doctoral Candidate in Cell Biology</p>
+                                                    <p class="waht">Ph.D. in Cell Biology, 2023</p>
                                                     <p class="waht">Master of Philosophy in Cell Biology, 2020</p>
                                                     <p class="where">Yale University</p>
                                                 </div>
@@ -299,6 +361,51 @@
                                         </div>
                                         <ul class="timeline">
                                             <li class="open">
+                                                <div class="date">2023</div>
+                                                <div class="circle"></div>
+                                                <div class="data">
+                                                    <div class="subject">Foresight Institute Feynman Prizes - Distinguished Student Award</div>
+                                                    <div class="text row">
+                                                        <div class="col-md-2">
+                                                            <img alt="image" class="thumbnail img-responsive" src="img/foresight.jpg" >
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            Recipient of Foresight Institute's Distinguished Student Award for notable contributions to nanotechnology development and understanding.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="open">
+                                                <div class="date">2023</div>
+                                                <div class="circle"></div>
+                                                <div class="data">
+                                                    <div class="subject">Northpond Director’s Fund</div>
+                                                    <div class="text row">
+                                                        <div class="col-md-2">
+                                                            <img alt="image" class="thumbnail img-responsive" src="img/wyss.jpg" >
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            Recipient of a grant supporting early-stage research at the Wyss Institute.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="open">
+                                                <div class="date">2023</div>
+                                                <div class="circle"></div>
+                                                <div class="data">
+                                                    <div class="subject">A*STAR International Fellowship</div>
+                                                    <div class="text row">
+                                                        <div class="col-md-2">
+                                                            <img alt="image" class="thumbnail img-responsive" src="img/ASTAR.jpg" >
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            Awarded for post-doctoral training at top overseas institution to deepen research expertise and expand global network.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li> 
+                                            <li class="open">
                                                 <div class="date">2017</div>
                                                 <div class="circle"></div>
                                                 <div class="data">
@@ -308,7 +415,7 @@
                                                             <img alt="image" class="thumbnail img-responsive" src="img/ASTAR.jpg" >
                                                         </div>
                                                         <div class="col-md-10">
-                                                            The scholarship fully funds up to four years of PhD studies in Singapore or partially finances one abroad. Upon graduation, the scholar will also be eligible for a 2-year post-doctoral fellowship overseas.
+                                                            The scholarship fully funds up to four years of PhD studies. 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -323,7 +430,7 @@
                                                             <img alt="image" class="thumbnail img-responsive" src="img/ASTAR.jpg" >
                                                         </div>
                                                         <div class="col-md-10">
-                                                            The National Science Scholarship (BS) awarded by the Agency for Science, Technology and Research (A*STAR) is an undergraduate scholarship that grooms young talents for a PhD education.
+                                                            An undergraduate scholarship that grooms talents for a PhD education.
                                                         </div>
                                                     </div>
                                                 </div>
@@ -520,8 +627,35 @@
                                         <div class="col-md-12">
                                             <div class="pitems">
                                             <!-- Add new items after this line -->
-						<!-- paper separator -->
-						   <div class="item mix report" data-year="2023">
+                                            <!-- paper separator -->
+                                                <div class="item mix jpaper" data-year="2024">
+                                                    <div class="pubmain">
+                                                        <div class="pubassets">
+                                                            
+                                                            <a href="#" class="pubcollapse">
+                                                                <i class="icon-expand-alt"></i>
+                                                            </a>
+                                                            <a href="https://doi.org/10.7150/thno.93127" class="tooltips" title="External link" target="_blank">
+                                                                <i class="icon-external-link"></i>
+                                                            </a>
+                                                            <!--
+                                                            <a href="#.pdf" class="tooltips" title="Download" target="_blank">
+                                                                <i class="icon-cloud-download"></i>
+                                                            </a>
+                                                            -->
+                                                        </div>
+
+                                                        <h4 class="pubtitle">PRL1 and PRL3 promote macropinocytosis via its lipid phosphatase activity</h4>
+                                                        <div class="pubauthor"><strong>Zu Ye</strong>, Chee Ping Ng, Haidong Liu, Qimei Bao, Shengfeng Xu, Dan Zu, Yanhua He, Yixing Huang, Abdul Qader Omer Al-Aidaroos, Ke Guo, Jie Li, Lai Ping Yaw, Qiancheng Xiong, Min Thura, Weihui Zheng, Fenghui Guan, Xiangdong Cheng, Yin Shi, Qi Zeng</div>
+                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Theranostics, Volume 14, Issue 9, 27 May 2024, Pages 3976–4050</div>
+                                                    </div>
+                                                    <div class="pubdetails">
+                                                        <h4>Abstract</h4>
+                                                        <p>PRL1 and PRL3, members of the protein tyrosine phosphatase family, have been associated with cancer metastasis and poor prognosis. Despite extensive research on their protein phosphatase activity, their potential role as lipid phosphatases remains elusive. We conducted comprehensive investigations to elucidate the lipid phosphatase activity of PRL1 and PRL3 using a combination of cellular assays, biochemical analyses, and protein interactome profiling. Functional studies were performed to delineate the impact of PRL1/3 on macropinocytosis and its implications in cancer biology. Our study has identified PRL1 and PRL3 as lipid phosphatases that interact with phosphoinositide (PIP) lipids, converting PI(3,4)P2 and PI(3,5)P2 into PI(3)P on the cellular membranes. These enzymatic activities of PRLs promote the formation of membrane ruffles, membrane blebbing and subsequent macropinocytosis, facilitating nutrient extraction, cell migration, and invasion, thereby contributing to tumor development. These enzymatic activities of PRLs promote the formation of membrane ruffles, membrane blebbing and subsequent macropinocytosis. Additionally, we found a correlation between PRL1/3 expression and glioma development, suggesting their involvement in glioma progression. Combining with the knowledge that PRLs have been identified to be involved in mTOR, EGFR and autophagy, here we concluded the physiological role of PRL1/3 in orchestrating the nutrient sensing, absorbing and recycling via regulating macropinocytosis through its lipid phosphatase activity. This mechanism could be exploited by tumor cells facing a nutrient-depleted microenvironment, highlighting the potential therapeutic significance of targeting PRL1/3-mediated macropinocytosis in cancer treatment.</p>
+                                                    </div>
+                                                </div>
+						                    <!-- paper separator -->
+						                        <div class="item mix report" data-year="2023">
                                                     <div class="pubmain">
                                                         <div class="pubassets">
                                                             
@@ -866,11 +1000,7 @@
                                         <ul class="list-unstyled">
                                             <li>
                                                 <strong><i class="icon-envelope"></i>&nbsp;&nbsp;</strong>
-                                                <span>qiancheng.xiong@yale.edu</span>
-                                            </li>
-                                            <li>
-                                                <strong><i class="icon-skype"></i>&nbsp;&nbsp;</strong>
-                                                <span>qiancheng.xiong</span>
+                                                <span>qiancheng.xiong (a) wyss.harvard.edu</span>
                                             </li>
                                             <li>
                                                 <strong><i class="icon-twitter"></i>&nbsp;&nbsp;</strong>
@@ -897,11 +1027,11 @@
                                 <div class="row">
                                     
                                     <div class="col-md-8">
-                                        <h2 class="title">At My Lab</h2>
+                                        <!--<h2 class="title">At My Lab</h2>-->
                                         <!--
                                         <p>You can find me at my lab located at the Institute of Molecular and Cell Biology.</p>
+                                        <p>Please email to fix an appointment.</p>
                                         -->
-                                        <p>I am at work every day from 9:00am until 6:00 pm, but you may consider an email to fix an appointment.</p>
                                     </div>
                                     <div class="col-md-4 text-center hidden-xs hidden-sm">
                                         <i class="icon-superscript icon-huge"></i>
