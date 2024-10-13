@@ -105,14 +105,14 @@ $(document).ready(function(){
 				$gotop1.removeClass('currentpage');	
 			}});
 
-			this.hanndelMenu();
+			this.handleMenu();
 		},
 
 		forward : function(gotop2 , /* optional */ gotop3){
 			
 			
 
-			self.hanndelMenu(gotop2);
+			self.handleMenu(gotop2);
 			self.overlay.show();
 			var maxz = self.maxz();
 			gotop2.addClass('currentpage');
@@ -130,7 +130,7 @@ $(document).ready(function(){
 		backward : function (gotop2,gotop1){
 			
 
-			this.hanndelMenu(gotop2);
+			this.handleMenu(gotop2);
 			gotop2.exists() || this.overlay.hide();
 			gotop2.addClass('currentpage').removeAttr('data-order').attr('data-pos',"p2");
 			gotop1.attr('data-pos','p1');
@@ -158,7 +158,7 @@ $(document).ready(function(){
 			return maxz;
 		},
 
-		hanndelMenu : function(){
+		handleMenu : function(){
 			
 
 			var menuIndex = ( arguments.length ) ? ( (arguments[0].length) ? arguments[0].index() : 0 ):0;
@@ -203,7 +203,7 @@ $(document).ready(function(){
 	/*++++++++++++++++++++++++++++++++++++
 		lab personnel carousel
 	++++++++++++++++++++++++++++++++++++++*/
-	function generateLabCarousel() {
+		/*function generateLabCarousel() {
 
 		var defaultCss = {
 			width: 100,
@@ -274,7 +274,7 @@ $(document).ready(function(){
 		});
 	}
 	generateLabCarousel();
-
+*/
 
 
 	/*++++++++++++++++++++++++++++++++++++
@@ -369,7 +369,7 @@ $(document).ready(function(){
 });
 
 
-$(window).load(function(){
+$(window).on('load', function () {
 
 	/*++++++++++++++++++++++++++++++++++++
 		gallery masonry layout
