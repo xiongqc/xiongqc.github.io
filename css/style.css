@@ -1102,12 +1102,12 @@ ul.grid li a,ul.grid li img {
 	color: #fff;
 }
 
-/*.contact-office .icon-huge, .contact-lab .icon-huge{
+/*.contact-office .contact-glyph-large, .contact-lab .contact-glyph-large{
 	color: #03cc85;
 }*/
 
 
-.icon-huge {
+.contact-glyph-large {
 	font-size: 170px;
 	text-align: center;
 	opacity: 0.3;

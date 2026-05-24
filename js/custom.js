@@ -302,9 +302,9 @@ $(document).ready(function(){
 			$item = $this.closest(".item");
 		
 		$item.find('div.pubdetails').slideToggle(function(){
-			$this.children("i").toggleClass('icon-collapse-alt icon-expand-alt');
+			$this.children("i").toggleClass('fa-square-minus fa-square-plus');
 		},function(){
-			$this.children("i").toggleClass('icon-expand-alt icon-collapse-alt');
+			$this.children("i").toggleClass('fa-square-plus fa-square-minus');
 		});
 	});
 

@@ -1,378 +1,356 @@
-<html> 
-<head> 
-
-        <!--CSS styles-->
-<style>
-
-p {
-	font-family: 'Open Sans',Arial,Helvetica,sans-serif;
-    font-size: 14px;
-}
-
-input[type=text] {
-    color: black;
-    box-sizing: border-box;
-    border-radius: 4px;
-}
-input[type=text]:focus {
-    background-color: lightblue;
-}
-input[type=number] {
-    color: black;
-    box-sizing: border-box;
-    border-radius: 4px;
-}
-input[type=number]:focus {
-    background-color: lightblue;
-}
-
-input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-
-div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-
-textarea {
-    width: 100%;
-    height: 200px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-}
-
-input[type=button], input[type=submit], input[type=reset] {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-</style>
-
-
-        
-        <!--/CSS styles-->
-
-</head> 
-<script type="text/javascript">
-function myFunction() {
-
-//sentence 0
-if(document.getElementById('salut_Mr').checked) {
-  var salut = "Mr";
-  var pron1 = "He";
-  var pron2 = "he";
-  var pron3 = "him";
-  var poss1 = "His";
-  var poss2 = "his";
-}else if(document.getElementById('salut_Mdm').checked) {
-  var salut = "Mdm";
-  var pron1 = "She";
-  var pron2 = "she";
-  var pron3 = "her";
-  var poss1 = "Her";
-  var poss2 = "her";
-
-}
-var name = document.getElementById("name").value;
-
-
-var sen0 = salut+" "+name + " would like to request for financial assistance. \n\n"
-
-//sentence 1
-
-
-var age = document.getElementById("age").value;
-
-if(document.getElementById('job_un').checked) {
-  var occupation = "unemployed";
-}else if(document.getElementById('job_em').checked) {
-  var occupation = document.getElementById("occupation").value;
-}else if(document.getElementById('job_re').checked) {
-  var occupation = "retired";
-}
-
-var sen1 = salut+" "+name + "," +" aged " + age + " years old," + " is " +occupation+ " ";
-
-//sentence 2
-var salary = document.getElementById("salary").value;
-
-if(document.getElementById('job_un').checked) {
-  var sen2 = "with no income. ";
-}else if(document.getElementById('job_em').checked) {
-  var sen2 = "earning $" + salary + " a month. ";
-}else if(document.getElementById('job_re').checked) {
-  var sen2 = "with no income. ";
-}
-
-//sentence 3
-if(document.getElementById('marital_ma').checked) {
-var marital = "married";
-}else if(document.getElementById('marital_si').checked) {
-var marital = "single";
-}else if(document.getElementById('marital_se').checked) {
-var marital = "separated from "+poss2+" spouse";
-}else if(document.getElementById('marital_di').checked) {
-var marital = "divorced";
-}else if(document.getElementById('marital_wi').checked) {
-var marital = "widowed";
-}
-
-
-var sen3 = pron1 + " is "+marital
-
-
-//sentence 4
-var spo_sa = document.getElementById('spo_sa').value;
-
-
-if (marital == "married") {
-	
-	if(document.getElementById('spo_un').checked) {
-		sen4=" but " + poss2 + " spouse is unemployed. ";
-	}else if (document.getElementById('spo_em').checked) {
-		sen4=" and the salary of "+ poss2 + " spouse is $"+spo_sa+". ";
-	}
-
-}else {
-	sen4 =". ";
-}
-
-
-//sentence 5 and 6
-var children = document.getElementById("children").value;
-var parents = document.getElementById("parents").value;
-
-if (children == "0") {
-	if (parents == "0") {
-		sen5 = "";
-		sen6 = "";
-	}
-	else if (parents != "1"){
-		sen5 = pron1+" also has to support ";
-		sen6 = parents+" elderly parents. ";
-	}
-	else {
-		sen5 = pron1+" also has to support "
-		sen6 = "an elderly parent. ";
-	}
-}
-else if (children != "1"){
-	sen5 = pron1+" also has to support "+children+" children";
-	if (parents == "0") {
-		sen6 = ".";
-	}
-	else if (parents !="1"){
-		sen6 = " and "+parents+" elderly parents. ";
-	}
-	else {
-		sen6 = " and "+"an elderly parent. ";
-	}
-}
-else {
-	sen5 = pron1+" also has to support a child";
-	if (parents == "0") {
-		sen6 = ".";
-	}
-	else if (parents !="1"){
-		sen6 = " and "+parents+" elderly parents. ";
-	}
-	else {
-		sen6 = " and "+"an elderly parent. ";
-	}
-}
-
-//sentence 7
-var health = document.getElementById("health").value;
-
-
-if(document.getElementById('med_h').checked) {
-var sen7 = "";
-}else if(document.getElementById('med_s').checked) {
-var sen7 = "\n\n"+salut+" "+name + " adds that " + pron2 + " cannot manage a stable income due to " +health+". ";
-}
-
-var fees = document.getElementById('fees').value;
-
-if(fees == "0") {
-var sen72 = "";
-}else {
-var sen72 = "The medical treatments resulted in an outstanding bill of around $" +fees+". ";
-}
-
-
-
-//sentence 8
-if(document.getElementById('childless').checked) {
-var sen8 = "\n\nDespite "+poss2+" old age, "+salut+" "+name+" has no adult child to depend on for financial support. ";
-}else {
-var sen8 = "";
-}
-
-if(document.getElementById('pl_child').checked) {
-var plchild = "adult children";
-var plchild2 = "children";
-var vbchild = "are";
-}else {
-var plchild = "an adult child";
-var plchild2 = "child";
-var vbchild = "is";
-}
-
-
-
-//sentence 9
-if(document.getElementById('unfilial').checked) {
-var sen9 = "\n\nDespite having "+plchild+" who "+vbchild+" working, "+salut+" "+name+" is not receiving any financial support from said "+plchild2+". ";
-}else {
-var sen9 = "";
-}
-
-//sentence 10
-var debt = document.getElementById('debt').value;
-
-if(debt != "0") {
-var sen10 = "\n\nGiven these circumstances, "+salut+" "+name+" also has difficulties financing "+poss2+" bills and loans, and has accumulated a debt of more than $"+debt+".";
-}else {
-var sen10 = "";
-}
-
-//sentence 11
-var sen11 = "\n\nI would be grateful if you could look into this case and assist wherever possible. \n\nPlease reply directly to the above with a copy for my record. Thank you."
-
-
-//compile
-    document.getElementById("status").value = "essay updated!";
-    document.getElementById('essay').value = sen0+sen1+sen2+sen3+sen4+sen5+sen6+sen7+sen72+sen8+sen9+sen10+sen11;
-}
-
-
-
-function copyToClipboard() {
-
-  // Create a "hidden" input
-  var aux = document.createElement("input");
-
-  // Assign it the value of the specified element
-  aux.setAttribute("value", document.getElementById('essay').value);
-
-  // Append it to the body
-  document.body.appendChild(aux);
-
-  // Highlight its content
-  aux.select();
-
-  // Copy the highlighted text
-  document.execCommand("copy");
-
-  // Remove it from the body
-  document.body.removeChild(aux);
-
-    document.getElementById("status").value = "copy successful!";
-
-}
-
-
-</script>
-
-
-
-
- <body> 
-
-<div>
-<p>
-Salutation:
-<input type="radio" name="salut" id="salut_Mr" value="Mr" checked="checked"/>Mr
-<input type="radio" name="salut" id="salut_Mdm" value="Mdm" />Mdm 
-<br/>
-<br/>
-Last Name: <input type="text" name="name" id="name" value ="Tan"/>
-
-Age: <input type="number" name="age" id="age" value ="20"/> 
-<br/>
-<br/>
-Occupation: 
-<input type="radio" name="job" id="job_un" value="un"/> unemployed
-<input type="radio" name="job" id="job_re" value="re"/> retired
-<input type="radio" name="job" id="job_em" value="em" checked="checked"/> employed
-<input type="text" name="occupation" id="occupation" value ="a teacher"/>
-Salary: <input type="number" name="salary" id="salary" value ="100" step = "100"/> 
-<br/>
-<br/>
-Marital Status:
-<input type="radio" name="marital" id="marital_ma" value="ma" checked="checked"/> married
-<input type="radio" name="marital" id="marital_si" value="si" /> single
-<input type="radio" name="marital" id="marital_se" value="se" /> separated
-<input type="radio" name="marital" id="marital_di" value="di" /> divorced
-<input type="radio" name="marital" id="marital_wi" value="wi" /> widowed
-<br/>
-<br/>
-Spouse's Occupation:
-<input type="radio" name="spo" id="spo_un" value="un" checked="checked"/> unemployed
-<input type="radio" name="spo" id="spo_em" value="em" /> employed
-salary: <input type="number" name="spo_sa" id="spo_sa" value ="100" step = "100"/> 
-<br/>
-<br/>
-Number of Dependents: 
-children <input type="number" name="children" id="children" value ="1"/>
-parents <input type="number" name="parents" id="parents" value ="1"/>
-<br/>
-<br/>
-Medical Condition:
-<input type="radio" name="med" id="med_h" value="h" /> healthy
-<input type="radio" name="med" id="med_s" value="s" checked="checked"/> 
-unfit for work <input type="text" name="health" id="health" value ="work injury"/>
-outstanding medical fees<input type="number" name="fees" id="fees" value ="0" step = "100"/>
-<br/>
-<br/>
-
-Elderly?
-<input type="radio" name="elderly" id="ntold" value="ntold" checked="checked"/> no / yes, but financially supported by children
-<input type="radio" name="elderly" id="childless" value="childless"/> yes, but childless
-<input type="radio" name="elderly" id="unfilial" value="unfilial" />yes, but receives no support from working child (plural?<input type="checkbox" name="pl_child" value="pl_child" id="pl_child"/>)
-<br/>
-<br/>
-
-Total Debts: 
-<input type="number" name="debt" id="debt" value ="0" step = "100"/>
-
-
-
-<br/>
-<br/>
-
-
-<input type="submit" name="button" id="button1" onclick="myFunction()" value="Generate!" />
-<br/>
-<br/>
-<input type="text" name="status" id="status" value="status" readonly="true" />
-<button onclick="copyToClipboard()">Copy to Clipboard</button>
-<br/>
-<textarea id="essay" name="essay" rows="50" cols="100">Enter variables and click "Generate!"</textarea>
-<br/>
-</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Essay Compiler</title>
+
+    <style>
+        p {
+            font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        input[type=text] {
+            color: black;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        input[type=text]:focus {
+            background-color: lightblue;
+        }
+
+        input[type=number] {
+            color: black;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        input[type=number]:focus {
+            background-color: lightblue;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            resize: none;
+        }
+
+        input[type=button],
+        input[type=submit],
+        input[type=reset] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>
+            Salutation:
+            <input type="radio" name="salut" id="salut_Mr" value="Mr" checked="checked">Mr
+            <input type="radio" name="salut" id="salut_Mdm" value="Mdm">Mdm
+            <br>
+            <br>
+            Last Name: <input type="text" name="name" id="name" value="Tan">
+
+            Age: <input type="number" name="age" id="age" value="20">
+            <br>
+            <br>
+            Occupation:
+            <input type="radio" name="job" id="job_un" value="un"> unemployed
+            <input type="radio" name="job" id="job_re" value="re"> retired
+            <input type="radio" name="job" id="job_em" value="em" checked="checked"> employed
+            <input type="text" name="occupation" id="occupation" value="a teacher">
+            Salary: <input type="number" name="salary" id="salary" value="100" step="100">
+            <br>
+            <br>
+            Marital Status:
+            <input type="radio" name="marital" id="marital_ma" value="ma" checked="checked"> married
+            <input type="radio" name="marital" id="marital_si" value="si"> single
+            <input type="radio" name="marital" id="marital_se" value="se"> separated
+            <input type="radio" name="marital" id="marital_di" value="di"> divorced
+            <input type="radio" name="marital" id="marital_wi" value="wi"> widowed
+            <br>
+            <br>
+            Spouse's Occupation:
+            <input type="radio" name="spo" id="spo_un" value="un" checked="checked"> unemployed
+            <input type="radio" name="spo" id="spo_em" value="em"> employed
+            salary: <input type="number" name="spo_sa" id="spo_sa" value="100" step="100">
+            <br>
+            <br>
+            Number of Dependents:
+            children <input type="number" name="children" id="children" value="1">
+            parents <input type="number" name="parents" id="parents" value="1">
+            <br>
+            <br>
+            Medical Condition:
+            <input type="radio" name="med" id="med_h" value="h"> healthy
+            <input type="radio" name="med" id="med_s" value="s" checked="checked">
+            unfit for work <input type="text" name="health" id="health" value="work injury">
+            outstanding medical fees<input type="number" name="fees" id="fees" value="0" step="100">
+            <br>
+            <br>
+
+            Elderly?
+            <input type="radio" name="elderly" id="ntold" value="ntold" checked="checked"> no / yes, but financially supported by children
+            <input type="radio" name="elderly" id="childless" value="childless"> yes, but childless
+            <input type="radio" name="elderly" id="unfilial" value="unfilial">yes, but receives no support from working child (plural?<input type="checkbox" name="pl_child" value="pl_child" id="pl_child">)
+            <br>
+            <br>
+
+            Total Debts:
+            <input type="number" name="debt" id="debt" value="0" step="100">
+
+            <br>
+            <br>
+
+            <input type="submit" name="button" id="button1" onclick="myFunction()" value="Generate!">
+            <br>
+            <br>
+            <input type="text" name="status" id="status" value="status" readonly>
+            <button type="button" onclick="copyToClipboard()">Copy to Clipboard</button>
+            <br>
+            <textarea id="essay" name="essay" rows="50" cols="100">Enter variables and click "Generate!"</textarea>
+            <br>
+        </p>
+    </div>
+
+    <script>
+        function myFunction() {
+
+            //sentence 0
+            if (document.getElementById('salut_Mr').checked) {
+                var salut = "Mr";
+                var pron1 = "He";
+                var pron2 = "he";
+                var pron3 = "him";
+                var poss1 = "His";
+                var poss2 = "his";
+            } else if (document.getElementById('salut_Mdm').checked) {
+                var salut = "Mdm";
+                var pron1 = "She";
+                var pron2 = "she";
+                var pron3 = "her";
+                var poss1 = "Her";
+                var poss2 = "her";
+
+            }
+            var name = document.getElementById("name").value;
+
+
+            var sen0 = salut + " " + name + " would like to request for financial assistance. \n\n"
+
+            //sentence 1
+
+
+            var age = document.getElementById("age").value;
+
+            if (document.getElementById('job_un').checked) {
+                var occupation = "unemployed";
+            } else if (document.getElementById('job_em').checked) {
+                var occupation = document.getElementById("occupation").value;
+            } else if (document.getElementById('job_re').checked) {
+                var occupation = "retired";
+            }
+
+            var sen1 = salut + " " + name + "," + " aged " + age + " years old," + " is " + occupation + " ";
+
+            //sentence 2
+            var salary = document.getElementById("salary").value;
+
+            if (document.getElementById('job_un').checked) {
+                var sen2 = "with no income. ";
+            } else if (document.getElementById('job_em').checked) {
+                var sen2 = "earning $" + salary + " a month. ";
+            } else if (document.getElementById('job_re').checked) {
+                var sen2 = "with no income. ";
+            }
+
+            //sentence 3
+            if (document.getElementById('marital_ma').checked) {
+                var marital = "married";
+            } else if (document.getElementById('marital_si').checked) {
+                var marital = "single";
+            } else if (document.getElementById('marital_se').checked) {
+                var marital = "separated from " + poss2 + " spouse";
+            } else if (document.getElementById('marital_di').checked) {
+                var marital = "divorced";
+            } else if (document.getElementById('marital_wi').checked) {
+                var marital = "widowed";
+            }
+
+
+            var sen3 = pron1 + " is " + marital
+
+
+            //sentence 4
+            var spo_sa = document.getElementById('spo_sa').value;
+
+
+            if (marital == "married") {
+
+                if (document.getElementById('spo_un').checked) {
+                    sen4 = " but " + poss2 + " spouse is unemployed. ";
+                } else if (document.getElementById('spo_em').checked) {
+                    sen4 = " and the salary of " + poss2 + " spouse is $" + spo_sa + ". ";
+                }
+
+            } else {
+                sen4 = ". ";
+            }
+
+
+            //sentence 5 and 6
+            var children = document.getElementById("children").value;
+            var parents = document.getElementById("parents").value;
+
+            if (children == "0") {
+                if (parents == "0") {
+                    sen5 = "";
+                    sen6 = "";
+                }
+                else if (parents != "1") {
+                    sen5 = pron1 + " also has to support ";
+                    sen6 = parents + " elderly parents. ";
+                }
+                else {
+                    sen5 = pron1 + " also has to support "
+                    sen6 = "an elderly parent. ";
+                }
+            }
+            else if (children != "1") {
+                sen5 = pron1 + " also has to support " + children + " children";
+                if (parents == "0") {
+                    sen6 = ".";
+                }
+                else if (parents != "1") {
+                    sen6 = " and " + parents + " elderly parents. ";
+                }
+                else {
+                    sen6 = " and " + "an elderly parent. ";
+                }
+            }
+            else {
+                sen5 = pron1 + " also has to support a child";
+                if (parents == "0") {
+                    sen6 = ".";
+                }
+                else if (parents != "1") {
+                    sen6 = " and " + parents + " elderly parents. ";
+                }
+                else {
+                    sen6 = " and " + "an elderly parent. ";
+                }
+            }
+
+            //sentence 7
+            var health = document.getElementById("health").value;
+
+
+            if (document.getElementById('med_h').checked) {
+                var sen7 = "";
+            } else if (document.getElementById('med_s').checked) {
+                var sen7 = "\n\n" + salut + " " + name + " adds that " + pron2 + " cannot manage a stable income due to " + health + ". ";
+            }
+
+            var fees = document.getElementById('fees').value;
+
+            if (fees == "0") {
+                var sen72 = "";
+            } else {
+                var sen72 = "The medical treatments resulted in an outstanding bill of around $" + fees + ". ";
+            }
+
+
+
+            //sentence 8
+            if (document.getElementById('childless').checked) {
+                var sen8 = "\n\nDespite " + poss2 + " old age, " + salut + " " + name + " has no adult child to depend on for financial support. ";
+            } else {
+                var sen8 = "";
+            }
+
+            if (document.getElementById('pl_child').checked) {
+                var plchild = "adult children";
+                var plchild2 = "children";
+                var vbchild = "are";
+            } else {
+                var plchild = "an adult child";
+                var plchild2 = "child";
+                var vbchild = "is";
+            }
+
+
+
+            //sentence 9
+            if (document.getElementById('unfilial').checked) {
+                var sen9 = "\n\nDespite having " + plchild + " who " + vbchild + " working, " + salut + " " + name + " is not receiving any financial support from said " + plchild2 + ". ";
+            } else {
+                var sen9 = "";
+            }
+
+            //sentence 10
+            var debt = document.getElementById('debt').value;
+
+            if (debt != "0") {
+                var sen10 = "\n\nGiven these circumstances, " + salut + " " + name + " also has difficulties financing " + poss2 + " bills and loans, and has accumulated a debt of more than $" + debt + ".";
+            } else {
+                var sen10 = "";
+            }
+
+            //sentence 11
+            var sen11 = "\n\nI would be grateful if you could look into this case and assist wherever possible. \n\nPlease reply directly to the above with a copy for my record. Thank you"
+
+
+            //compile
+            document.getElementById("status").value = "essay updated!";
+            document.getElementById('essay').value = sen0 + sen1 + sen2 + sen3 + sen4 + sen5 + sen6 + sen7 + sen72 + sen8 + sen9 + sen10 + sen11;
+        }
+
+        async function copyToClipboard() {
+            var essay = document.getElementById('essay').value;
+            var status = document.getElementById("status");
+
+            try {
+                await navigator.clipboard.writeText(essay);
+                status.value = "copy successful!";
+            } catch (error) {
+                status.value = "copy failed. Please copy manually.";
+            }
+        }
+    </script>
 </body>
- </html>
+</html>

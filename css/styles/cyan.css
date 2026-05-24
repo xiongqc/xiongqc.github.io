@@ -31,7 +31,7 @@ ul.timeline li .data {
 .pitems .pubmain .pubassets a:hover,.pitems .pubmain .pubassets a:focus,.pitems .pubmain .pubassets a.pubcollapse {
 	background: #0dd;
 }
-.contact-office .icon-huge, .contact-lab .icon-huge {
+.contact-office .contact-glyph-large, .contact-lab .contact-glyph-large {
 	color: #0dd;
 }
 
