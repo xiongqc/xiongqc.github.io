@@ -34,18 +34,6 @@ $(document).ready(function(){
 		SidebarAnim.reverse();		
 	});
 
-
-	/*++++++++++++++++++++++++++++++++++++++++++++++
-		custom scrolls with perfectScroll plugin
-	++++++++++++++++++++++++++++++++++++++++++++++++*/
-	$("#main-nav").perfectScrollbar({
-		wheelPropagation:true,
-		wheelSpeed:80
-	});
-
-	
-	
-
 	/*++++++++++++++++++++++++++++++++++++
 		pages 
 	++++++++++++++++++++++++++++++++++++++*/

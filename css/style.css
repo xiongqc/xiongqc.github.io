@@ -82,7 +82,7 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
 	left: 0;
 	top: 0;
 	bottom: 45px;
-	overflow: hidden;
+	overflow: auto;
 }
 
 #main {

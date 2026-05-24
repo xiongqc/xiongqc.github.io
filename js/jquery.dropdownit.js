@@ -12,6 +12,14 @@
 
 	'use strict';
 
+	var supportsCssTransitions = ( function() {
+		var style = document.createElement( 'div' ).style;
+		return 'transition' in style ||
+			'WebkitTransition' in style ||
+			'MozTransition' in style ||
+			'OTransition' in style;
+	} )();
+
 	$.DropDown = function( options, element ) {
 		this.$el = $( element );
 		this._init( options );
@@ -62,7 +70,7 @@
 			
 			this.selectlabel.css( 'z-index', this.minZIndex + this.optsCount );
 			this._positionOpts();
-			if( Modernizr.csstransitions ) {
+			if( supportsCssTransitions ) {
 				setTimeout( function() { self.opts.css( 'transition', 'all ' + self.options.speed + 'ms ' + self.options.easing ); }, 25 );
 			}
 
@@ -171,7 +179,7 @@
 								'rotate(-' + ( i * 5 ) + 'deg)' :
 								'rotate(' + ( i * 5 ) + 'deg)'
 							: 'none',
-					transitionDelay : self.options.delay && Modernizr.csstransitions ? self.options.slidingIn ? ( i * self.options.delay ) + 'ms' : ( ( self.optsCount - 1 - i ) * self.options.delay ) + 'ms' : 0
+					transitionDelay : self.options.delay && supportsCssTransitions ? self.options.slidingIn ? ( i * self.options.delay ) + 'ms' : ( ( self.optsCount - 1 - i ) * self.options.delay ) + 'ms' : 0
 				} );
 
 			} );
@@ -182,7 +190,7 @@
 
 			var self = this;
 			this.dd.toggleClass( 'cd-active' );
-			if( this.options.delay && Modernizr.csstransitions ) {
+			if( this.options.delay && supportsCssTransitions ) {
 				this.opts.each( function( i ) {
 					$( this ).css( { 'transition-delay' : self.options.slidingIn ? ( ( self.optsCount - 1 - i ) * self.options.delay ) + 'ms' : ( i * self.options.delay ) + 'ms' } );
 				} );
