@@ -12,8 +12,8 @@
         <meta name="msvalidate.01" content="0477ED63E0C6D968BB8B595E3C610279" />
         <meta http-equiv="Content-Security-Policy" content="
           default-src 'self';
-          script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://code.jquery.com https://cdnjs.cloudflare.com https://stackpath.bootstrapcdn.com;
-          style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com;
+          script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://code.jquery.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
+          style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
           font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
           img-src 'self' data:;
           connect-src 'self';
@@ -54,7 +54,7 @@
         </script>
 
         <!--CSS styles-->
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="css/font-awesome.min.css">
 
         <!-- Perfect Scrollbar CSS from CDN -->
@@ -75,8 +75,8 @@
         <!-- jQuery (Latest version from CDN) -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
 
-        <!-- Bootstrap JS (Latest version from CDN) -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" defer></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
 
         <!-- GSAP (TweenMax and ScrollToPlugin) -->
         <script src="js/TweenMax.min.js" defer></script>
@@ -140,7 +140,7 @@
                 <div id="main-nav">
                     <div id="nav-container">
                         <div id="profile" class="clearfix">
-                            <div class="portrate hidden-xs"></div>
+                            <div class="portrate d-none d-md-block"></div>
                             <div class="title">
                                 <h2>Qiancheng Xiong</h2>
                                 <h3>Bioprocessing Technology Institute (BTI)</h3> 
@@ -228,7 +228,7 @@
                                                     <h4>Visit to Prof. Taoran Tian at West China School of Stomatology</h4>
                                                     <p>Qiancheng visited Prof. Taoran Tian at the West China School of Stomatology, Sichuan University, for scientific exchange on nucleic-acid nanotechnology, biomaterials, and potential future collaborations.</p>
                                                     <div class="image">
-                                                        <img alt="Visit to Prof. Taoran Tian at West China School of Stomatology" src="img/news/APR2026_Taoran.jpg" width="400" class="img-responsive">
+                                                        <img alt="Visit to Prof. Taoran Tian at West China School of Stomatology" src="img/news/APR2026_Taoran.jpg" width="400" class="img-fluid">
                                                     </div>
                                                 </div>
                                             </li>   
@@ -270,7 +270,7 @@
                                                     <h4>Selected as a 2026 Foresight Nanotechnology Fellow</h4>
                                                     <p>Qiancheng was selected as a 2026 Foresight Nanotechnology Fellow. The Foresight Fellowship supports early-career scientists, engineers, and innovators working to advance frontier technologies. </p>
                                                     <div class="image">
-                                                        <img alt="Qiancheng was selected as a 2026 Foresight Nanotechnology Fellow" src="img/news/JAN2026_Foresight.jpg" width="400" class="img-responsive">
+                                                        <img alt="Qiancheng was selected as a 2026 Foresight Nanotechnology Fellow" src="img/news/JAN2026_Foresight.jpg" width="400" class="img-fluid">
                                                     </div>
 												</div>
                                             </li>   
@@ -286,7 +286,7 @@
                                                     <h4>Congratulations to Madison and Isha for Completing Their RAP Attachments</h4>
                                                     <p>Congratulations to Madison Cheah-Swift and Isha Suresh for completing their attachments under the A*STAR Student Research Attachment Programme (RAP). It was a pleasure having them contribute to our early lab activities and research discussions.</p>
                                                     <div class="image">
-                                                        <img alt="Madison Cheah-Swift and Isha Suresh completing their RAP attachments" src="img/news/DEC2025_RAP.jpg" width="400" class="img-responsive">
+                                                        <img alt="Madison Cheah-Swift and Isha Suresh completing their RAP attachments" src="img/news/DEC2025_RAP.jpg" width="400" class="img-fluid">
                                                     </div>
                                                 </div>
                                             </li>   
@@ -302,7 +302,7 @@
                                                     <h4>Singapore Scientific Conference 2025</h4>
                                                     <p>Qiancheng attended the Singapore Scientific Conference 2025, held at Marina Bay Sands Expo and Convention Centre. He was honoured to meet Prof. Nieng Yan, whose keynote lecture highlighted fundamental advances in structural biology and membrane protein research.</p>
                                                     <div class="image">
-                                                        <img alt="Qiancheng at Singapore Scientific Conference 2025" src="img/news/DEC2025_Yan.jpg" width="400" class="img-responsive">
+                                                        <img alt="Qiancheng at Singapore Scientific Conference 2025" src="img/news/DEC2025_Yan.jpg" width="400" class="img-fluid">
                                                     </div>
                                                 </div>
                                             </li>   
@@ -318,7 +318,7 @@
                                                     <h4>Visit to Prof. Qi Shen at Shanghai Jiao Tong University</h4>
                                                     <p>Qiancheng visited Prof. Qi Shen at Shanghai Jiao Tong University for scientific exchange on DNA nanotechnology, synthetic biomolecular systems, and future collaborative opportunities.</p>
                                                     <div class="image">
-                                                        <img alt="Qiancheng visited Prof. Qi Shen at Shanghai Jiao Tong University" src="img/news/DEC2025_Qi.jpg" width="400" class="img-responsive">
+                                                        <img alt="Qiancheng visited Prof. Qi Shen at Shanghai Jiao Tong University" src="img/news/DEC2025_Qi.jpg" width="400" class="img-fluid">
                                                     </div>
 												</div>
                                             </li>   
@@ -375,16 +375,16 @@
                             <div class="section-container">
                                 
                                 <div class="row">
-                                    <div class="col-sm-2 visible-sm"></div>
-                                    <div class="col-sm-8 col-md-5">
+                                    <div class="col-md-2 d-none d-md-block d-lg-none"></div>
+                                    <div class="col-md-8 col-lg-5">
                                         <div class="biothumb">
-                                            <img alt="image" src="img/personal/bio.jpg"  class="img-responsive">
+                                            <img alt="image" src="img/personal/bio.jpg"  class="img-fluid">
                                         </div>
                                         
                                     </div>
-                                    <div class="clearfix visible-sm visible-xs"></div>
+                                    <div class="clearfix d-block d-lg-none"></div>
                                     
-                                    <div class="col-sm-12 col-md-7">
+                                    <div class="col-md-12 col-lg-7">
                                         <h3 class="title">Biography</h3>
                                         <p>I am a Senior Scientist at A*STAR Bioprocessing Technology Institute in Singapore. My research focuses on programmable DNA and RNA origami nanostructures for therapeutic delivery, including next-generation vaccines, nucleic-acid therapeutics, and precision biomolecular engineering. I hold a PhD in Cell Biology from Yale University and a BA in Natural Sciences from the University of Cambridge.</p>
                                     </div>  
@@ -398,7 +398,7 @@
                         <div class="section color-1">
                             <div class="section-container">
                                 <div class="row">
-                                    <div class="col-md-5 col-md-offset-1">
+                                    <div class="col-md-5 offset-md-1">
                                         <div class="title text-center">
                                             <h3>Work Experience</h3>
                                         </div>
@@ -533,7 +533,7 @@
                         <div class="section color-2">
                             <div class="section-container">
                                 <div class="row">
-                                    <div class="col-md-10 col-md-offset-1">
+                                    <div class="col-md-10 offset-md-1">
                                         <div class="title text-center">
                                             <h3>Honours, Awards and Grants</h3>
                                         </div>
@@ -545,7 +545,7 @@
                                                     <div class="subject">Foresight Fellowship</div>
                                                     <div class="text row">
                                                         <div class="col-md-2">
-                                                            <img alt="image" class="thumbnail img-responsive" src="img/news/JAN2026_Foresight.jpg" >
+                                                            <img alt="image" class="img-thumbnail img-fluid" src="img/news/JAN2026_Foresight.jpg" >
                                                         </div>
                                                         <div class="col-md-10">
                                                             Selected as a Foresight Fellow for work in programmable nucleic-acid nanostructures and therapeutic delivery.
@@ -560,7 +560,7 @@
                                                     <div class="subject">A*STAR Young Achiever Research Grant</div>
                                                     <div class="text row">
                                                         <div class="col-md-2">
-                                                            <img alt="image" class="thumbnail img-responsive" src="img/ASTAR.jpg" >
+                                                            <img alt="image" class="img-thumbnail img-fluid" src="img/ASTAR.jpg" >
                                                         </div>
                                                         <div class="col-md-10">
                                                             Awarded to support independent research on programmable nucleic-acid nanostructures for therapeutic delivery.
@@ -575,7 +575,7 @@
                                                     <div class="subject">Foresight Institute Feynman Prizes - Distinguished Student Award</div>
                                                     <div class="text row">
                                                         <div class="col-md-2">
-                                                            <img alt="image" class="thumbnail img-responsive" src="img/foresight.jpg" >
+                                                            <img alt="image" class="img-thumbnail img-fluid" src="img/foresight.jpg" >
                                                         </div>
                                                         <div class="col-md-10">
                                                             Recipient of Foresight Institute's Distinguished Student Award for notable contributions to nanotechnology development and understanding.
@@ -590,7 +590,7 @@
                                                     <div class="subject">Northpond Director’s Fund</div>
                                                     <div class="text row">
                                                         <div class="col-md-2">
-                                                            <img alt="image" class="thumbnail img-responsive" src="img/wyss.jpg" >
+                                                            <img alt="image" class="img-thumbnail img-fluid" src="img/wyss.jpg" >
                                                         </div>
                                                         <div class="col-md-10">
                                                             Recipient of a grant supporting early-stage research at the Wyss Institute.
@@ -605,7 +605,7 @@
                                                     <div class="subject">A*STAR International Fellowship</div>
                                                     <div class="text row">
                                                         <div class="col-md-2">
-                                                            <img alt="image" class="thumbnail img-responsive" src="img/ASTAR.jpg" >
+                                                            <img alt="image" class="img-thumbnail img-fluid" src="img/ASTAR.jpg" >
                                                         </div>
                                                         <div class="col-md-10">
                                                             Awarded for post-doctoral training at top overseas institution to deepen research expertise and expand global network.
@@ -620,7 +620,7 @@
                                                     <div class="subject">A*STAR Graduate Scholarship</div>
                                                     <div class="text row">
                                                         <div class="col-md-2">
-                                                            <img alt="image" class="thumbnail img-responsive" src="img/ASTAR.jpg" >
+                                                            <img alt="image" class="img-thumbnail img-fluid" src="img/ASTAR.jpg" >
                                                         </div>
                                                         <div class="col-md-10">
                                                             The scholarship fully funds up to four years of PhD studies. 
@@ -635,7 +635,7 @@
                                                     <div class="subject">National Science Scholarship (BS)</div>
                                                     <div class="text row">
                                                         <div class="col-md-2">
-                                                            <img alt="image" class="thumbnail img-responsive" src="img/ASTAR.jpg" >
+                                                            <img alt="image" class="img-thumbnail img-fluid" src="img/ASTAR.jpg" >
                                                         </div>
                                                         <div class="col-md-10">
                                                             An undergraduate scholarship supporting future PhD-level researchers.
@@ -692,7 +692,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-6 col-md-3">
                                                         <div class="image">
-                                                            <img alt="image" src="img/projects/p2.jpg"  class="img-responsive">
+                                                            <img alt="image" src="img/projects/p2.jpg"  class="img-fluid">
                                                             <div class="imageoverlay">
                                                                 <i class="icon icon-search"></i>
                                                             </div>
@@ -716,7 +716,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-6 col-md-3">
                                                         <div class="image">
-                                                            <img alt="image" src="img/projects/p3.jpg"  class="img-responsive">
+                                                            <img alt="image" src="img/projects/p3.jpg"  class="img-fluid">
                                                             <div class="imageoverlay">
                                                                 <i class="icon icon-search"></i>
                                                             </div>
@@ -740,7 +740,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-6 col-md-3">
                                                         <div class="image">
-                                                            <img alt="image" src="img/projects/p4.jpg"  class="img-responsive">
+                                                            <img alt="image" src="img/projects/p4.jpg"  class="img-fluid">
                                                             <div class="imageoverlay">
                                                                 <i class="icon icon-search"></i>
                                                             </div>
@@ -763,7 +763,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-6 col-md-3">
                                                         <div class="image">
-                                                            <img alt="image" src="img/projects/p5.jpg"  class="img-responsive">
+                                                            <img alt="image" src="img/projects/p5.jpg"  class="img-fluid">
                                                             <div class="imageoverlay">
                                                                 <i class="icon icon-search"></i>
                                                             </div>
@@ -819,10 +819,10 @@
                                             
                                             <div class="col-md-3" id="sort">
                                                 <span>Sort by year:</span>
-                                                <div class="btn-group pull-right"> 
+                                                <div class="btn-group float-end">
 
-                                                    <button type="button" data-sort="data-year" data-order="desc" class="sort btn btn-default"><i class="icon-sort-by-order"></i></button>
-                                                    <button type="button" data-sort="data-year" data-order="asc" class="sort btn btn-default"><i class="icon-sort-by-order-alt"></i></button>
+                                                    <button type="button" data-sort="data-year" data-order="desc" class="sort btn btn-outline-secondary"><i class="icon-sort-by-order"></i></button>
+                                                    <button type="button" data-sort="data-year" data-order="asc" class="sort btn btn-outline-secondary"><i class="icon-sort-by-order-alt"></i></button>
                                                 </div>
                                             </div>    
                                         </div>
@@ -849,7 +849,7 @@
 
                                                         <h4 class="pubtitle">DNA origami vaccine nanoparticles improve humoral and cellular immune responses to infectious diseases</h4>
                                                         <div class="pubauthor"><strong>Yang C. Zeng</strong>, <strong>Olivia J. Young</strong>, <strong>Qiancheng Xiong</strong>, <strong>Longlong Si</strong>, <strong>Min Wen Ku</strong>, Sylvie G. Bernier, Hawa Dembele, Giorgia Isinelli, Tal Gilboa, Zoe Swank, Su Hyun Seok, Anjali Rajwar, Amanda Jiang, Yunhao Zhai, LaTonya D. Williams, Caleb A. Hellman, Chris M. Wintersinger, Amanda R. Graveline, Andyna Vernet, Melinda Sanchez, Sarai Bardales, Goyal G., Ingber D. E., Shih W. M.</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Nature Biomedical Engineering, 11 March 2026</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Nature Biomedical Engineering, 11 March 2026</div>
                                                     </div>
                                                     <div class="pubdetails">
                                                         <h4>Abstract</h4>
@@ -870,7 +870,7 @@
 
                                                         <h4 class="pubtitle">RNA nanostructures based on three-letter coding with non-canonical base pairs</h4>
                                                         <div class="pubauthor"><strong>Jianqiu Zhao</strong>, Yan Qin, Qiancheng Xiong, Fang Fang, Bryan Wei</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Nanoscale Horizons, Volume 11, 2026, Pages 1048–1052</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Nanoscale Horizons, Volume 11, 2026, Pages 1048–1052</div>
                                                     </div>
                                                     <div class="pubdetails">
                                                         <h4>Abstract</h4>
@@ -897,7 +897,7 @@
 
                                                         <h4 class="pubtitle">PRL1 and PRL3 promote macropinocytosis via its lipid phosphatase activity</h4>
                                                         <div class="pubauthor"><strong>Zu Ye</strong>, Chee Ping Ng, Haidong Liu, Qimei Bao, Shengfeng Xu, Dan Zu, Yanhua He, Yixing Huang, Abdul Qader Omer Al-Aidaroos, Ke Guo, Jie Li, Lai Ping Yaw, Qiancheng Xiong, Min Thura, Weihui Zheng, Fenghui Guan, Xiangdong Cheng, Yin Shi, Qi Zeng</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Theranostics, Volume 14, Issue 9, 27 May 2024, Pages 3976–4050</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Theranostics, Volume 14, Issue 9, 27 May 2024, Pages 3976–4050</div>
                                                     </div>
                                                     <div class="pubdetails">
                                                         <h4>Abstract</h4>
@@ -924,7 +924,7 @@
 
                                                         <h4 class="pubtitle">Recent Advances in DNA Origami-Engineered Nanomaterials and Applications</h4>
                                                         <div class="pubauthor"><strong>Pengfei Zhan</strong>, Andreas Peil, Qiao Jiang, Dongfang Wang, Shikufa Mousavi, Qiancheng Xiong, Qi Shen, Yingxu Shang, Baoquan Ding, Chenxiang Lin, Yonggang Ke, Na Liu</div>
-                                                        <div class="pubcite"><span class="label label-success">Review</span>Chemical Reviews, Volume 123, Issue 7, 29 March 2023, Pages 3976–4050</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Review</span>Chemical Reviews, Volume 123, Issue 7, 29 March 2023, Pages 3976–4050</div>
                                                     </div>
                                                     <div class="pubdetails">
                                                         <h4>Abstract</h4>
@@ -951,7 +951,7 @@
 
                                                         <h4 class="pubtitle">The capsid lattice engages a bipartite NUP153 motif to mediate nuclear entry of HIV-1 cores</h4>
                                                         <div class="pubauthor"><strong>Qi Shen</strong>, Sushila Kumari, Chaoyi Xu, Sooin Jang, Jiong Shi, Ryan C. Burdick, Lev Levintov, Qiancheng Xiong, Chunxiang Wu, Swapnil C. Devarkar, Taoran Tian, Therese N. Tripler, Yingxia Hu, Shuai Yuan, Joshua Temple, Qingzhou Feng, C. Patrick Lusk, Christopher Aiken, Alan N. Engelman, Juan R. Perilla, Vinay K. Pathak, Chenxiang Lin, Yong Xiong</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Proceedings of the National Academy of Sciences, Volume 120, Issue 13, 21 March 2023, Article e2202815120</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Proceedings of the National Academy of Sciences, Volume 120, Issue 13, 21 March 2023, Article e2202815120</div>
                                                     </div>
                                                     <div class="pubdetails">
                                                         <h4>Abstract</h4>
@@ -978,7 +978,7 @@
 
                                                         <h4 class="pubtitle">Modeling HIV-1 nuclear entry with nucleoporin-gated DNA-origami channels</h4>
                                                         <div class="pubauthor"><strong>Qi Shen</strong>, Qingzhou Feng, Chunxiang Wu, Qiancheng Xiong, Taoran Tian, Shuai Yuan, Jiong Shi, Gregory J. Bedwell, Ran Yang, Christopher Aiken, Alan N. Engelman, C. Patrick Lusk, Chenxiang Lin, Yong Xiong</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Nature Structural & Molecular Biology, 20 February 2023</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Nature Structural & Molecular Biology, 20 February 2023</div>
                                                     </div>
                                                     <div class="pubdetails">
                                                         <h4>Abstract</h4>
@@ -1005,7 +1005,7 @@
 
                                                         <h4 class="pubtitle">Functionalized DNA-Origami-Protein Nanopores Generate Large Transmembrane Channels with Programmable Size-Selectivity</h4>
                                                         <div class="pubauthor"><strong>Qi Shen</strong>, <strong>Qiancheng Xiong</strong>, Kaifeng Zhou, Qingzhou Feng, Longfei Liu, Taoran Tian, Chunxiang Wu, Yong Xiong, Thomas J. Melia, C. Patrick Lusk, Chenxiang Lin</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Journal of the American Chemical Society, Volume 145, Issue 2, 18 January 2023, Pages 1292–1300</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Journal of the American Chemical Society, Volume 145, Issue 2, 18 January 2023, Pages 1292–1300</div>
                                                     </div>
                                                     <div class="pubdetails">
                                                         <h4>Abstract</h4>
@@ -1032,7 +1032,7 @@
 
                                                         <h4 class="pubtitle">Actuating tension-loaded DNA clamps drives membrane tubulation</h4>
                                                         <div class="pubauthor"><strong>Longfei Liu</strong>, Qiancheng Xiong, Chun Xie, Frederic Pincet, Chenxiang Lin</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Science Advances, Volume 8, Issue 41, 12 October 2022, eadd1830</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Science Advances, Volume 8, Issue 41, 12 October 2022, eadd1830</div>
                                                     </div>
                                                     <div class="pubdetails">
                                                         <h4>Abstract</h4>
@@ -1058,7 +1058,7 @@
 
                                                         <h4 class="pubtitle">Omicron-specific mRNA vaccination alone and as a heterologous booster against SARS-CoV-2</h4>
                                                         <div class="pubauthor"><strong>Zhenhao Fang</strong>, <strong>Lei Peng</strong>, Renata Filler, Kazushi Suzuki, Andrew McNamara, Qianqian Lin, Paul A. Renauer, Luojia Yang, Bridget Menasche, Angie Sanchez, Ping Ren, Qiancheng Xiong, Madison Strine, Paul Clark, Chenxiang Lin, Albert I. Ko, Nathan D. Grubaugh, Craig B. Wilen, Sidi Chen</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Nature Communications, Volume 13, Issue 1, 06 June 2022, Page 3250</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Nature Communications, Volume 13, Issue 1, 06 June 2022, Page 3250</div>
                                                     </div>
                                                     <div class="pubdetails">
                                                         <h4>Abstract</h4>
@@ -1084,7 +1084,7 @@
 
                                                         <h4 class="pubtitle">Variant-specific vaccination induces systems immune responses and potent <em>in vivo</em> protection against SARS-CoV-2</h4>
                                                         <div class="pubauthor"><strong>Lei Peng</strong>, <strong>Paul A Renauer</strong>, <strong>Arya Ökten</strong>, <strong>Zhenhao Fang</strong>, <strong>Jonathan J Park</strong>, <strong>Xiaoyu Zhou</strong>, Qianqian Lin, Matthew B Dong, Renata Filler, Qiancheng Xiong, Paul Clark, Chenxiang Lin, Craig B Wilen, Sidi Chen</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Cell Reports Medicine, Volume 3, Issue 5, 17 May 2022, Page 100634</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Cell Reports Medicine, Volume 3, Issue 5, 17 May 2022, Page 100634</div>
                                                     </div>
                                                     <div class="pubdetails">
                                                         <h4>Abstract</h4>
@@ -1110,7 +1110,7 @@
 
                                                         <h4 class="pubtitle">DNA-Origami NanoTrap for Studying the Selective Barriers Formed by Phenylalanine-Glycine-Rich Nucleoporins</h4>
                                                         <div class="pubauthor"><strong>Qi Shen</strong>, Taoran Tian, Qiancheng Xiong, Patrick D Ellis Fisher, Yong Xiong, Thomas J Melia, C Patrick Lusk, Chenxiang Lin</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Journal of the American Chemical Society, Volume 143, Issue 31, 29 July 2021, Pages 12294-12303</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Journal of the American Chemical Society, Volume 143, Issue 31, 29 July 2021, Pages 12294-12303</div>
                                                         
                                                     </div>
                                                     <div class="pubdetails">
@@ -1137,7 +1137,7 @@
 
                                                         <h4 class="pubtitle">PRL3 induces polyploid giant cancer cells eliminated by PRL3-zumab to reduce tumor relapse</h4>
                                                         <div class="pubauthor"><strong>Min Thura</strong>, <strong>Zu Ye</strong>, Abdul Qader Al-Aidaroos, Qiancheng Xiong, Jun Yi Ong, Abhishek Gupta, Jie Li, Ke Guo, Koon Hwee Ang, Qi Zeng</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Communications Biology, Volume 4, Issue 1, 29 July 2021, 923</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Communications Biology, Volume 4, Issue 1, 29 July 2021, 923</div>
                                                         
                                                     </div>
                                                     <div class="pubdetails">
@@ -1164,7 +1164,7 @@
 
                                                         <h4 class="pubtitle">Sorting sub-150-nm liposomes of distinct sizes by DNA-brick-assisted centrifugation</h4>
                                                         <div class="pubauthor"><strong>Yang Yang</strong>, <strong>Zhenyong Wu</strong>, Laurie Wang, Kaifeng Zhou, Kai Xia, Qiancheng Xiong, Longfei Liu, Zhao Zhang, Edwin R. Chapman, Yong Xiong, Thomas J. Melia, Erdem Karatekin, Hongzhou Gu, and Chenxiang Lin</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Nature Chemistry, Volume 13, Issue 4, 30 March 2021, Pages 335-342</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Nature Chemistry, Volume 13, Issue 4, 30 March 2021, Pages 335-342</div>
                                                         
                                                     </div>
                                                     <div class="pubdetails">
@@ -1191,7 +1191,7 @@
 
                                                         <h4 class="pubtitle">DNA Origami Post‐Processing by CRISPR‐Cas12a</h4>
                                                         <div class="pubauthor"><strong>Qiancheng Xiong</strong>, <strong>Chun Xie</strong>, Zhao Zhang, Longfei Liu, John T Powell, Qi Shen, Chenxiang Lin</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Angewandte Chemie International Edition in English, Volume 59, Issue 10, 02 March 2020, Pages 3956-3960</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Angewandte Chemie International Edition in English, Volume 59, Issue 10, 02 March 2020, Pages 3956-3960</div>
                                                         
                                                     </div>
                                                     <div class="pubdetails">
@@ -1218,7 +1218,7 @@
 
                                                         <h4 class="pubtitle">A Programmable DNA-Origami Platform for Studying Lipid Transfer between Bilayers</h4>
                                                         <div class="pubauthor"><strong>Xin Bian</strong>, <strong>Zhao Zhang</strong>, Qiancheng Xiong, Pietro De Camilli, Chenxiang Lin</div>
-                                                        <div class="pubcite"><span class="label label-success">Original Research</span>Nature Chemical Biology, Volume 15, Issue 8, 18 July 2019, Pages 830–837</div>
+                                                        <div class="pubcite"><span class="badge text-bg-success me-2">Original Research</span>Nature Chemical Biology, Volume 15, Issue 8, 18 July 2019, Pages 830–837</div>
                                                         
                                                     </div>
                                                     <div class="pubdetails">
@@ -1283,7 +1283,7 @@
                                         <p>Please email to fix an appointment.</p>
                                         -->
                                     </div>
-                                    <div class="col-md-4 text-center hidden-xs hidden-sm">
+                                    <div class="col-md-4 text-center d-none d-lg-block">
                                         <i class="icon-superscript icon-huge"></i>
                                     </div>
 
