@@ -1156,3 +1156,45 @@ ul.timeline .date {
 }
 
 }
+
+@media (max-width: 768px) {
+	.mobilemenu {
+		right: auto;
+		width: 46px;
+		height: 46px;
+		padding: 0;
+		font-size: 24px;
+		line-height: 46px;
+		text-align: center;
+	}
+
+	.headercontent > .section-container {
+		padding-left: 60px;
+	}
+
+	.pitems .pubmain {
+		padding-bottom: 45px;
+	}
+
+	.pitems .pubcite {
+		margin-bottom: 15px;
+	}
+
+	.pitems .pubmain .pubassets {
+		display: flex;
+		flex-direction: row-reverse;
+		gap: 4px;
+		align-items: stretch;
+	}
+
+	.pitems .pubmain .pubassets a {
+		float: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+		min-width: 44px;
+		min-height: 40px;
+		padding: 6px 12px;
+	}
+}
