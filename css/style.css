@@ -596,6 +596,11 @@ ul.timeline li .data .text {
 	font-size: 14px;
 }
 
+/*************************************************
+ * DORMANT ASSETS: Reserved for Future Research Features
+ * These detail-list styles support the inactive research section in index.html.
+ **************************************************/
+
 /* ul-withdetails
  **************************************************/
 .ul-withdetails {
@@ -650,6 +655,10 @@ ul.timeline li .data .text {
 	-webkit-box-shadow: inset 0px 3px 5px -3px #ccc;
 	box-shadow: inset 0px 3px 5px -3px #ccc;
 }
+
+/*************************************************
+ * /DORMANT ASSETS: Research
+ **************************************************/
 
 /*************************************************
  * lab partnerts
@@ -930,7 +939,9 @@ ul.timeline li .data .text {
 	display: none;
 }
 
-/* Gallery
+/*************************************************
+ * DORMANT ASSETS: Reserved for Future Gallery Features
+ * Kept for the inactive gallery grid, overlays, and Magnific Popup transitions.
  **************************************************/
 #gallery-header {
 	color: #f7f7f7;
@@ -960,6 +971,10 @@ ul.grid li {
 	width: 33%;
 }
 
+/* Dormant gallery responsive math:
+ * 33% creates three columns by default; 50% and 100% step down cleanly
+ * to two-column and single-column layouts at narrower widths.
+ */
 @media screen and (max-width: 900px) {
 	ul.grid li {
 	width: 50%;
@@ -1095,6 +1110,10 @@ ul.grid li a,ul.grid li img {
 	opacity: 0;
 }
 
+/*************************************************
+ * /DORMANT ASSETS: Gallery
+ **************************************************/
+
 /* contanct
  **************************************************/
 .contact-office {
@@ -1118,7 +1137,10 @@ ul.grid li a,ul.grid li img {
 	display: block;
 	padding-top: 30px;
 }
-
+/* Mobile overrides: compact timeline spacing
+ * Removing the 100px timeline gutter lets the date label sit inside the flow,
+ * while the 65px top padding preserves room for the absolute date marker.
+ */
 @media (max-width: 500px) {
 	ul.timeline {
 	margin: 0;
@@ -1141,6 +1163,10 @@ ul.timeline .date {
 
 }
 
+/* Mobile overrides: off-canvas navigation
+ * The sidebar remains 250px wide; left:-250px parks it fully off-screen,
+ * and #main resets to left:0 so content fills the available viewport.
+ */
 @media (max-width: 991px) {
 	.mobilemenu {
 	display: block;
@@ -1157,6 +1183,10 @@ ul.timeline .date {
 
 }
 
+/* Mobile overrides: menu, header, and publication controls
+ * The 46px menu button plus a 14px clear zone yields the 60px header inset.
+ * Publication controls use 44px+ tap targets and flex spacing for reliable touch.
+ */
 @media (max-width: 768px) {
 	.mobilemenu {
 		right: auto;

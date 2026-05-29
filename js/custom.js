@@ -3,6 +3,7 @@ const loc = window.location.href,
     index = loc.indexOf('#');
 
 if (index > 0) {
+  // Remove the initial hash from the visible URL without adding a new history entry.
   history.replaceState(null, document.title, loc.substring(0, index));
 }
 
@@ -219,10 +220,13 @@ $(document).ready(function(){
 			$(".tooltips").tooltip();
 		}
 	}).on('click','div.pubmain a[href="#"]',function(event){
+		// Placeholder action links should toggle the publication details, not navigate.
 		event.preventDefault();
 	}).on('click','div.pubmain a[href]:not([href="#"])',function(event){
+		// Real publication links open normally without bubbling into the expand/collapse handler.
 		event.stopPropagation();
 	}).on('click','div.pubmain',function(){
+		// Clicking the publication row expands or collapses its paired details panel.
 		var $this = $(this), 
 			$item = $this.closest(".item");
 		
