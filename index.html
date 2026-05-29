@@ -85,6 +85,7 @@
 
         <!-- Custom scripts -->
         <script src="js/custom.js" defer></script>
+        <script src="js/tools/dna-bending-calc.js" defer></script>
 
         <!--/Javascript files-->
 
@@ -167,6 +168,12 @@
                               <a href="#appearances">
                                 <div class="icon fa-solid fa-video"></div>
                                 <div class="text">Appearances</div>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#tools">
+                                <div class="icon fa-solid fa-laptop-code"></div>
+                                <div class="text">Tools &amp; Software</div>
                               </a>
                             </li>
                             <li>
@@ -1296,6 +1303,214 @@
                     </div>
                 </div>
                 <!-- /Main Content: Talks & Appearances -->
+
+                <!-- Main Content: Tools & Software -->
+                <div id="tools" class="page">
+                    <div class="page-container">
+                        <div class="pagecontents">
+                            <div class="headercontent">
+                                <div class="section-container">
+                                    <h2 class="title">Tools &amp; Software</h2>
+                                </div>
+                            </div>
+
+                            <div class="section color-1">
+                                <div class="section-container">
+                                    <div class="row g-4 align-items-start">
+                                        <div class="col-lg-8">
+                                            <div class="card tools-card shadow-sm">
+                                                <div class="card-body">
+                                                    <h3 class="card-title h4 mb-4">DNA Origami Bending Angle Calculator</h3>
+
+                                                    <form id="angle-calculator-form" novalidate>
+                                                        <div class="row g-3">
+                                                            <div class="col-sm-6">
+                                                                <label class="form-label" for="angle-Nds">Nds</label>
+                                                                <input class="form-control" id="angle-Nds" type="number" step="1" value="6" data-label="Nds">
+                                                                <div class="form-text">Number of double-stranded DNA helices comprising the bundle cross-section (Default: 6).</div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <label class="form-label" for="angle-Nbp">Nbp</label>
+                                                                <input class="form-control" id="angle-Nbp" type="number" step="1" value="168" data-label="Nbp">
+                                                                <div class="form-text">Nominal base-pair length of the unbent arc segment.</div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <label class="form-label" for="angle-bp1">bp1</label>
+                                                                <input class="form-control" id="angle-bp1" type="number" step="1" value="14" data-label="bp1">
+                                                                <div class="form-text">Programmed base-pair delta (insertions on outer layers, deletions on inner layers) governing the structural curvature.</div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <label class="form-label" for="angle-delta-coefficient">delta_coefficient</label>
+                                                                <input class="form-control" id="angle-delta-coefficient" type="text" inputmode="decimal" value="1.125E-9" data-label="delta_coefficient">
+                                                                <div class="form-text">Effective geometric radius of a single helix, modeling each DNA filament as a 2.25 nm wide elastic rod.</div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <label class="form-label" for="angle-scheme">Bending Scheme</label>
+                                                                <select class="form-select" id="angle-scheme">
+                                                                    <option selected>Scheme A</option>
+                                                                    <option>Scheme B</option>
+                                                                </select>
+                                                                <div class="small text-muted mt-3">
+                                                                    <p><strong>Scheme A (Lattice Edge Orientation):</strong> The 6-helix bundle is bent perpendicular to parallel edges of its hexagonal lattice. Two helices lie perfectly along the neutral bending axis (delta = 0), while the remaining four are positioned symmetrically at the outer/inner tension planes (delta = ±√3).</p>
+                                                                    <p><strong>Scheme B (Lattice Vertex Orientation / 30° Rotation):</strong> The cross-section is rotated 30° relative to the bending direction. No helices sit on the neutral axis; instead, they are stratified symmetrically across four parallel planes at graded strain coordinates (delta = ±1, ±2).</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="mt-4">
+                                                            <button class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#angle-constants" aria-expanded="false" aria-controls="angle-constants">
+                                                                <i class="fa-solid fa-sliders me-2"></i>Advanced Physical Constants
+                                                            </button>
+
+                                                            <div class="collapse mt-3" id="angle-constants">
+                                                                <div class="row g-3">
+                                                                    <div class="col-sm-6">
+                                                                        <label class="form-label" for="angle-D">D</label>
+                                                                        <input class="form-control" id="angle-D" type="text" inputmode="decimal" value="2.25E-9" data-label="D">
+                                                                        <div class="form-text">Helix Diameter (m) — The effective structural width of a single dsDNA rod.</div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <label class="form-label" for="angle-Lds">Lds</label>
+                                                                        <input class="form-control" id="angle-Lds" type="text" inputmode="decimal" value="0.335E-9" data-label="Lds">
+                                                                        <div class="form-text">Base-Pair Rise (m/bp) — The canonical axial rise step of relaxed, unconstrained B-form DNA.</div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <label class="form-label" for="angle-kb">kb</label>
+                                                                        <input class="form-control" id="angle-kb" type="text" inputmode="decimal" value="1.38E-23" data-label="kb">
+                                                                        <div class="form-text">Boltzmann Constant (J/K) — Links microscopic thermal fluctuations to macroscopic work metrics.</div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <label class="form-label" for="angle-T">T</label>
+                                                                        <input class="form-control" id="angle-T" type="number" step="1" value="297" data-label="T">
+                                                                        <div class="form-text">Absolute Temperature (K) — The experimental ambient operating climate (~24°C).</div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <label class="form-label" for="angle-S">S</label>
+                                                                        <input class="form-control" id="angle-S" type="text" inputmode="decimal" value="660E-12" data-label="S">
+                                                                        <div class="form-text">Helix Stretch Modulus (N) — The Hookean axial stiffness parameter governing resistance to longitudinal compression and extension.</div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <label class="form-label" for="angle-B">B</label>
+                                                                        <input class="form-control" id="angle-B" type="text" inputmode="decimal" value="230E-30" data-label="B">
+                                                                        <div class="form-text">Helix Bending Modulus (N·m²) — The flexural rigidity defining the persistent mechanical bending stiffness of a single dsDNA filament.</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <button id="angle-calculate" class="btn btn-primary w-100 mt-4" type="button">
+                                                            Calculate Bending Angle
+                                                        </button>
+                                                        <button class="btn btn-outline-secondary w-100 mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#source-code-collapse"><i class="fa-solid fa-code me-1"></i> View JavaScript Source</button>
+                                                    </form>
+
+                                                    <div class="angle-output mt-4">
+                                                        <div id="angle-result" class="angle-result alert alert-secondary mb-3" role="status" aria-live="polite">
+                                                            Awaiting calculation
+                                                        </div>
+                                                        <pre id="angle-output-log" class="angle-log bg-dark text-light p-3 font-monospace mb-0" tabindex="0" aria-label="Angle energy matrix output"></pre>
+                                                        <div class="collapse mt-2" id="source-code-collapse">
+                                                            <small class="text-muted d-block mb-1">Core Mathematical Optimization Routine:</small>
+                                                            <pre class="bg-dark text-light p-3 rounded font-monospace" style="font-size: 0.75rem; max-height: 300px; overflow-y: auto; text-align: left;">const schemeConfigs = {
+  "Scheme A": {
+    n: [Nbp + bp1, Nbp + bp1, Nbp - bp1, Nbp - bp1, Nbp, Nbp],
+    delta: [Math.sqrt(3), Math.sqrt(3), -Math.sqrt(3), -Math.sqrt(3), 0, 0]
+  },
+  "Scheme B": {
+    n: [Nbp + 2 * bp1, Nbp + bp1, Nbp - bp1, Nbp - 2 * bp1, Nbp - bp1, Nbp + bp1],
+    delta: [2, 1, -1, -2, -1, 1]
+  }
+};
+
+const LArc = Nbp * Lds;
+const scaledDelta = schemeConfigs[bendingScheme].delta.map(function (value) {
+  return value * deltaCoefficient;
+});
+const n = schemeConfigs[bendingScheme].n;
+const helixTotalEnergy = [];
+
+for (let angleInDegrees = 1; angleInDegrees <= 360; angleInDegrees += 1) {
+  const angleInRadians = angleInDegrees / 180.0 * Math.PI;
+  const rref = LArc / angleInRadians;
+  let helixStretchEnergy = 0;
+  let helixBendingEnergy = 0;
+
+  for (let i = 0; i < Nds; i += 1) {
+    const d = (Nbp / n[i]) * Lds * (scaledDelta[i] / rref + 1);
+    helixStretchEnergy += 0.5 * S * n[i] * Math.pow(d - Lds, 2) / Lds;
+    helixBendingEnergy += 0.5 * B * n[i] * Lds / Math.pow(rref + scaledDelta[i], 2);
+  }
+
+  helixTotalEnergy.push(helixStretchEnergy + helixBendingEnergy);
+}
+
+const optimalAngle = helixTotalEnergy.indexOf(Math.min.apply(Math, helixTotalEnergy)) + 1;</pre>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="card tools-citation-card position-sticky shadow-sm">
+                                                <div class="card-body">
+                                                    <h3 class="card-title h5">Software Citation Guide</h3>
+                                                    <p>If you use this calculation tool for your structural modeling, please credit the primary paper introducing the software alongside the foundational frameworks it implements:</p>
+                                                    <div class="mb-3">
+                                                        <h4 class="h6 mb-2">Reader-Friendly Formats</h4>
+                                                        <p class="small text-muted mb-2"><strong>Primary Software Source:</strong> Xiong, Q. et al. "DNA Origami Post-Processing by CRISPR-Cas12a." <em>Angewandte Chemie International Edition</em>, 2020, 59(10), 3956–3960.</p>
+                                                        <p class="small text-muted mb-2"><strong>Foundational Geometry:</strong> Dietz, H. et al. "Folding DNA into Twisted and Curved Nanoscale Shapes." <em>Science</em>, 2009, 325(5941), 725–730.</p>
+                                                        <p class="small text-muted mb-0"><strong>Foundational Mechanics:</strong> Zhou, L. et al. "DNA Origami Compliant Nanostructures with Tunable Mechanical Properties." <em>ACS Nano</em>, 2014, 8(1), 27–34.</p>
+                                                    </div>
+                                                    <h4 class="h6 mb-2">BibTeX Entry:</h4>
+                                                    <pre class="bg-dark text-light p-2 rounded font-monospace" id="bibtex-bundle" style="font-size: 0.7rem; max-height: 180px; overflow-y: auto; text-align: left; white-space: pre;">%% Primary Software Source %%
+@article{xiong2020dna,
+  author = {Xiong, Qiancheng and Xie, Chun and Zhang, Zhao and Liu, Longfei and Powell, John T. and Shen, Qi and Lin, Chenxiang},
+  title = {DNA Origami Post-Processing by CRISPR-Cas12a},
+  journal = {Angewandte Chemie International Edition},
+  volume = {59},
+  number = {10},
+  pages = {3956--3960},
+  year = {2020},
+  doi = {10.1002/anie.201915555}
+}
+
+%% Foundational Geometry %%
+@article{dietz2009folding,
+  author = {Dietz, Hendrik and Douglas, Shawn M. and Shih, William M.},
+  title = {Folding DNA into Twisted and Curved Nanoscale Shapes},
+  journal = {Science},
+  volume = {325},
+  number = {5941},
+  pages = {725--730},
+  year = {2009},
+  doi = {10.1126/science.1174251}
+}
+
+%% Foundational Mechanics %%
+@article{zhou2014dna,
+  author = {Zhou, Lifeng and Marras, Alexander E. and Su, Hai-Jun and Castro, Carlos E.},
+  title = {DNA Origami Compliant Nanostructures with Tunable Mechanical Properties},
+  journal = {ACS Nano},
+  volume = {8},
+  number = {1},
+  pages = {27--34},
+  year = {2014},
+  doi = {10.1021/nn405408g}
+}</pre>
+                                                    <button id="copy-citation" class="btn btn-outline-primary btn-sm" type="button">
+                                                        <i class="fa-regular fa-copy me-2"></i>Copy BibTeX Bundle
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Main Content: Tools & Software -->
 
                 <!-- Main Content: Contact -->
                 <div id="contact" class="page stellar">

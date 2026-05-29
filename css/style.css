@@ -939,6 +939,58 @@ ul.timeline li .data .text {
 	display: none;
 }
 
+/* tools and software
+ **************************************************/
+.tools-card .form-label {
+	font-weight: 700;
+	color: #555;
+}
+
+.tools-card .form-control,.tools-card .form-select {
+	border-radius: 4px;
+}
+
+.angle-result {
+	min-height: 72px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 4px;
+}
+
+.angle-result .angle-value {
+	font-size: 34px;
+	font-weight: 900;
+	line-height: 1;
+}
+
+.angle-log {
+	height: 300px;
+	overflow: auto;
+	border-radius: 4px;
+	font-size: 13px;
+	line-height: 1.45;
+	white-space: pre;
+}
+
+.tools-citation-card {
+	top: 20px;
+}
+
+.citation-bibtex {
+	max-height: 300px;
+	overflow: auto;
+	background: #f6f7f9;
+	border: 1px solid #e1e4e8;
+	border-radius: 4px;
+	color: #333;
+	font-size: 12px;
+	line-height: 1.45;
+	padding: 15px;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
 /*************************************************
  * DORMANT ASSETS: Reserved for Future Gallery Features
  * Kept for the inactive gallery grid, overlays, and Magnific Popup transitions.
@@ -1226,5 +1278,20 @@ ul.timeline .date {
 		min-width: 44px;
 		min-height: 40px;
 		padding: 6px 12px;
+	}
+
+	.angle-result .angle-value {
+		font-size: 28px;
+	}
+
+	.angle-log {
+		font-size: 12px;
+		height: 260px;
+	}
+}
+
+@media (max-width: 991px) {
+	.tools-citation-card {
+		position: static !important;
 	}
 }
