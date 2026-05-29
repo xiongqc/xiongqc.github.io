@@ -1,9 +1,9 @@
 
-var loc = window.location.href,
+const loc = window.location.href,
     index = loc.indexOf('#');
 
 if (index > 0) {
-  window.location = loc.substring(0, index);
+  history.replaceState(null, document.title, loc.substring(0, index));
 }
 
 $.fn.exists = function () {
@@ -45,7 +45,7 @@ $(document).ready(function(){
 		topz : "500",
 		init: function(){
 
-			self = this;
+			const self = this;
 			self.menuItems.on('click','li:not(.external)', function(e){
 				
 				e.preventDefault();
@@ -100,16 +100,16 @@ $(document).ready(function(){
 			
 			
 
-			self.handleMenu(gotop2);
-			self.overlay.show();
-			var maxz = self.maxz();
+			this.handleMenu(gotop2);
+			this.overlay.show();
+			const maxz = this.maxz();
 			gotop2.addClass('currentpage');
 			gotop2.attr('data-pos','p2').removeAttr('data-order');
 			gotop3.attr('data-pos','p3').attr('data-order',maxz+1);
 			
 
 			( new TimelineLite() )
-				.set(gotop2,{ left:"100%",zIndex:self.topz})
+				.set(gotop2,{ left:"100%",zIndex:this.topz})
 				.set(gotop3,{zIndex:maxz+1})
 				.to(gotop2,0.4,{left:"15%"})
 				.to(gotop3,0.3,{ left:0 , onComplete:function(){gotop3.removeClass('currentpage');} },"-=0.2");
@@ -124,7 +124,7 @@ $(document).ready(function(){
 			gotop1.attr('data-pos','p1');
 
 			(new TimelineLite())
-				.set(gotop2,{zIndex:self.topz-1})
+				.set(gotop2,{zIndex:this.topz-1})
 				.to(gotop2,0.4,{left:"15%"})
 				.to(gotop1,0.5,
 					{
@@ -142,7 +142,7 @@ $(document).ready(function(){
 			var levelArray = this.pages.map( function() {
 			    return $(this).attr('data-order');
 			}).get();
-			maxz = levelArray.length && Math.max.apply( Math, levelArray );
+			const maxz = levelArray.length && Math.max.apply( Math, levelArray );
 			return maxz;
 		},
 
@@ -173,14 +173,14 @@ $(document).ready(function(){
 		.addClass("open");
 
 	$("ul.timeline").on("click","li", function(){
-		$this = $(this);
+		const $this = $(this);
 		$this.find(".text").slideDown();
 		$this.addClass("open");
 		$this.siblings('li.open').find(".text").slideUp();
 		$this.siblings('li').removeClass("open");
 	}).on('mouseenter','li',function(){
-		$this = $(this);
-		var anim = new TweenLite($(this).find(".subject"),0.4,{'padding-left':20, paused:true});
+		const $this = $(this);
+		var anim = new TweenLite($this.find(".subject"),0.4,{'padding-left':20, paused:true});
 		($this.hasClass('open')) || anim.play();
 	}).on('mouseleave','li',function(){
 		var anim = new TweenLite($(this).find(".subject"),0.2,{'padding-left':0});
@@ -198,8 +198,8 @@ $(document).ready(function(){
 	            opacity:"toggle"
 	        },300);
 	}).on('mouseenter',function(){
-		$this = $(this);
-		var anim = new TweenLite($(this).closest("li").find(".imageoverlay"),0.4,{left:0});
+		const $this = $(this);
+		var anim = new TweenLite($this.closest("li").find(".imageoverlay"),0.4,{left:0});
 	}).on('mouseleave', function(){
 		var anim = new TweenLite($(this).closest("li").find(".imageoverlay"),0.2,{left:"-102%"});
 	});
@@ -218,14 +218,16 @@ $(document).ready(function(){
 		onMixEnd: function(){
 			$(".tooltips").tooltip();
 		}
+	}).on('click','div.pubmain a[href="#"]',function(event){
+		event.preventDefault();
+	}).on('click','div.pubmain a[href]:not([href="#"])',function(event){
+		event.stopPropagation();
 	}).on('click','div.pubmain',function(){
 		var $this = $(this), 
 			$item = $this.closest(".item");
 		
 		$item.find('div.pubdetails').slideToggle(function(){
-			$this.children("i").toggleClass('fa-square-minus fa-square-plus');
-		},function(){
-			$this.children("i").toggleClass('fa-square-plus fa-square-minus');
+			$this.find(".pubcollapse i").toggleClass('fa-square-minus fa-square-plus');
 		});
 	});
 
@@ -250,21 +252,23 @@ $(document).ready(function(){
 		new TweenLite($(this).find(".over"),0.4,{bottom:"-100%", top:"100%"});
 	});
 
-	$('.popup-with-move-anim').magnificPopup({
-		type: 'image',
+	if ($.fn.magnificPopup) {
+		$('.popup-with-move-anim').magnificPopup({
+			type: 'image',
 
-		fixedContentPos: false,
-		fixedBgPos: true,
+			fixedContentPos: false,
+			fixedBgPos: true,
 
-		overflowY: 'auto',
+			overflowY: 'auto',
 
-		closeBtnInside: true,
-		preloader: false,
-		
-		midClick: true,
-		removalDelay: 400,
-		mainClass: 'my-mfp-slide-bottom'
-	});
+			closeBtnInside: true,
+			preloader: false,
+
+			midClick: true,
+			removalDelay: 400,
+			mainClass: 'my-mfp-slide-bottom'
+		});
+	}
 
 	/*++++++++++++++++++++++++++++++++++++
 		stellar for contact page backgrounds
@@ -285,8 +289,10 @@ $(window).on('load', function () {
 	++++++++++++++++++++++++++++++++++++++*/
 	var $container = $('#grid');
 	// initialize
-	$container.masonry({
-	  itemSelector: 'li'
-	});
+	if ($.fn.masonry) {
+		$container.masonry({
+		  itemSelector: 'li'
+		});
+	}
 	
 });
