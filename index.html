@@ -86,6 +86,7 @@
         <!-- Custom scripts -->
         <script src="js/custom.js" defer></script>
         <script src="js/tools/dna-bending-calc.js" defer></script>
+        <script src="js/tools/ssdna-tension-calc.js" defer></script>
 
         <!--/Javascript files-->
 
@@ -1316,7 +1317,7 @@
 
                             <div class="section color-1">
                                 <div class="section-container">
-                                    <div class="row g-4 align-items-start">
+                                    <div class="row align-items-start mb-5">
                                         <div class="col-lg-8">
                                             <div class="card tools-card shadow-sm">
                                                 <div class="card-body">
@@ -1454,8 +1455,8 @@ const optimalAngle = helixTotalEnergy.indexOf(Math.min.apply(Math, helixTotalEne
                                         <div class="col-lg-4">
                                             <div class="card tools-citation-card position-sticky shadow-sm">
                                                 <div class="card-body">
-                                                    <h3 class="card-title h5">Software Citation Guide</h3>
-                                                    <p>If you use this calculation tool for your structural modeling, please credit the primary paper introducing the software alongside the foundational frameworks it implements:</p>
+                                                    <h3 class="card-title h5">Bending Model Citation Guide</h3>
+                                                    <p>If you use the bending angle calculator for structural modeling, please cite the software source and the geometric/mechanical models it implements.</p>
                                                     <div class="mb-3">
                                                         <h4 class="h6 mb-2">Reader-Friendly Formats</h4>
                                                         <p class="small text-muted mb-2"><strong>Primary Software Source:</strong> Xiong, Q. et al. "DNA Origami Post-Processing by CRISPR-Cas12a." <em>Angewandte Chemie International Edition</em>, 2020, 59(10), 3956–3960.</p>
@@ -1463,7 +1464,7 @@ const optimalAngle = helixTotalEnergy.indexOf(Math.min.apply(Math, helixTotalEne
                                                         <p class="small text-muted mb-0"><strong>Foundational Mechanics:</strong> Zhou, L. et al. "DNA Origami Compliant Nanostructures with Tunable Mechanical Properties." <em>ACS Nano</em>, 2014, 8(1), 27–34.</p>
                                                     </div>
                                                     <h4 class="h6 mb-2">BibTeX Entry:</h4>
-                                                    <pre class="bg-dark text-light p-2 rounded font-monospace" id="bibtex-bundle" style="font-size: 0.7rem; max-height: 180px; overflow-y: auto; text-align: left; white-space: pre;">%% Primary Software Source %%
+                                                    <pre class="bg-dark text-light p-2 rounded font-monospace" id="bending-bibtex" style="font-size: 0.7rem; max-height: 180px; overflow-y: auto; text-align: left; white-space: pre;">%% Primary Software Source %%
 @article{xiong2020dna,
   author = {Xiong, Qiancheng and Xie, Chun and Zhang, Zhao and Liu, Longfei and Powell, John T. and Shen, Qi and Lin, Chenxiang},
   title = {DNA Origami Post-Processing by CRISPR-Cas12a},
@@ -1498,8 +1499,160 @@ const optimalAngle = helixTotalEnergy.indexOf(Math.min.apply(Math, helixTotalEne
   year = {2014},
   doi = {10.1021/nn405408g}
 }</pre>
-                                                    <button id="copy-citation" class="btn btn-outline-primary btn-sm" type="button">
-                                                        <i class="fa-regular fa-copy me-2"></i>Copy BibTeX Bundle
+                                                    <button id="copy-bending-bibtex" class="btn btn-outline-primary btn-sm" type="button">
+                                                        <i class="fa-regular fa-copy me-2"></i>Copy Bending BibTeX
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-start mb-5">
+                                        <div class="col-lg-8">
+                                            <div class="card tools-card shadow-sm">
+                                                <div class="card-body">
+                                                    <h3 class="card-title h4 mb-4">ssDNA Entropic Spring Tension Calculator</h3>
+
+                                                    <form id="ssdna-tension-form" novalidate>
+                                                        <div class="row g-3">
+                                                            <div class="col-sm-6">
+                                                                <label class="form-label" for="ssdna-N">N</label>
+                                                                <input class="form-control" id="ssdna-N" type="number" step="1" value="276" data-label="N">
+                                                                <div class="form-text">ssDNA Length (Bases) — The total number of nucleotides comprising the single-stranded segment.</div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <label class="form-label" for="ssdna-length">Length_in_m</label>
+                                                                <input class="form-control" id="ssdna-length" type="text" inputmode="decimal" value="43E-9" data-label="Length_in_m">
+                                                                <div class="form-text">Extension Distance (m) — The physical end-to-end length of the tensioned ssDNA tether.</div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="mt-4">
+                                                            <button class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#ssdna-polymer-parameters" aria-expanded="false" aria-controls="ssdna-polymer-parameters">
+                                                                <i class="fa-solid fa-sliders me-2"></i>Advanced Polymer Parameters
+                                                            </button>
+
+                                                            <div class="collapse mt-3" id="ssdna-polymer-parameters">
+                                                                <div class="row g-3">
+                                                                    <div class="col-sm-6">
+                                                                        <label class="form-label" for="ssdna-Lk">Lk</label>
+                                                                        <input class="form-control" id="ssdna-Lk" type="text" inputmode="decimal" value="1.5E-9" data-label="Lk">
+                                                                        <div class="form-text">Kuhn Length (m) — The structural segment length representing polymer stiffness (~1.5 nm for ssDNA).</div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <label class="form-label" for="ssdna-l">l</label>
+                                                                        <input class="form-control" id="ssdna-l" type="text" inputmode="decimal" value="0.63E-9" data-label="l">
+                                                                        <div class="form-text">Contour Length per Base (m/base) — The physical length contribution per unpaired nucleotide.</div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <label class="form-label" for="ssdna-K">K</label>
+                                                                        <input class="form-control" id="ssdna-K" type="text" inputmode="decimal" value="800E-9" data-label="K">
+                                                                        <div class="form-text">Backbone Stretching Modulus (N) — The Hookean elastic constant representing the core stretch resistance of the single-stranded backbone.</div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <label class="form-label" for="ssdna-kb">kb</label>
+                                                                        <input class="form-control" id="ssdna-kb" type="text" inputmode="decimal" value="1.38E-23" data-label="kb">
+                                                                        <div class="form-text">Boltzmann Constant (J/K) — Thermal scaling unit linking microstate fluctuations to physical work.</div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <label class="form-label" for="ssdna-T">T</label>
+                                                                        <input class="form-control" id="ssdna-T" type="number" step="1" value="297" data-label="T">
+                                                                        <div class="form-text">Absolute Temperature (K) — Operational ambient experimental climate (~24°C).</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <button id="ssdna-calculate" class="btn btn-success w-100 mt-4" type="button">
+                                                            Calculate Tension Force
+                                                        </button>
+                                                        <button class="btn btn-outline-secondary w-100 mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#ssdna-source-code-collapse"><i class="fa-solid fa-code me-1"></i> View JavaScript Source</button>
+                                                    </form>
+
+                                                    <div class="mt-4">
+                                                        <div id="tension-result-banner" class="alert alert-success fw-bold text-center mb-3 fs-5">Calculated ssDNA Tendon Force: -- pN</div>
+                                                        <pre id="ssdna-output-log" class="bg-dark text-light p-3 font-monospace mb-0" style="height: 300px; overflow: auto; border-radius: 4px;" tabindex="0" aria-label="ssDNA tension force output">Awaiting calculation</pre>
+                                                        <div class="collapse mt-2" id="ssdna-source-code-collapse">
+                                                            <small class="text-muted d-block mb-1">Stretchable Freely-Jointed Chain Search Routine:</small>
+                                                            <pre class="bg-dark text-light p-3 rounded font-monospace" style="font-size: 0.75rem; max-height: 300px; overflow-y: auto; text-align: left;">function x(f, Lc, Lk, kb, T, K) {
+  return Lc * (
+    1 / Math.tanh((f * Lk) / (kb * T)) -
+    (kb * T) / (f * Lk)
+  ) * (1 + f / K);
+}
+
+const Lc = l * N;
+let best = null;
+const evaluations = [];
+
+for (let step = 1; step < 200; step += 1) {
+  const force = step * 1E-13;
+  const extension = x(force, Lc, Lk, kb, T, K);
+  const error = Math.abs(extension - Length_in_m);
+
+  evaluations.push({ step, force, extension, error });
+
+  if (!best || error < best.error) {
+    best = { step, force, extension, error };
+  }
+}
+
+const forceInPiconewtons = best.force * 1E12;</pre>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="card tools-citation-card position-sticky shadow-sm">
+                                                <div class="card-body">
+                                                    <h3 class="card-title h5">ssDNA Tension Citation Guide</h3>
+                                                    <p>If you use the ssDNA tension calculator for structural modeling, please cite the implementation source and the ssDNA spring mechanics frameworks it builds on.</p>
+                                                    <div class="mb-3">
+                                                        <h4 class="h6 mb-2">Reader-Friendly Formats</h4>
+                                                        <p class="small text-muted mb-2"><strong>Primary Implementation:</strong> Xiong, Q. et al. "DNA Origami Post-Processing by CRISPR-Cas12a." <em>Angewandte Chemie International Edition</em>, 2020.</p>
+                                                        <p class="small text-muted mb-2"><strong>Foundational Tensegrity:</strong> Liedl, T. et al. "Self-assembly of three-dimensional prestressed tensegrity structures from DNA." <em>Nature Nanotechnology</em>, 2010, 5(7), 476–483.</p>
+                                                        <p class="small text-muted mb-0"><strong>Nanoscopic Force Clamps:</strong> Nickels, P. C. et al. "Molecular force spectroscopy with a DNA origami-based nanoscopic force clamp." <em>Science</em>, 2016, 354(6310), 305–307.</p>
+                                                    </div>
+                                                    <h4 class="h6 mb-2">BibTeX Entry:</h4>
+                                                    <pre class="bg-dark text-light p-2 rounded font-monospace" id="tension-bibtex" style="font-size: 0.7rem; max-height: 180px; overflow-y: auto; text-align: left; white-space: pre;">%% Primary Implementation %%
+@article{xiong2020dna,
+  author = {Xiong, Qiancheng and Xie, Chun and Zhang, Zhao and Liu, Longfei and Powell, John T. and Shen, Qi and Lin, Chenxiang},
+  title = {DNA Origami Post-Processing by CRISPR-Cas12a},
+  journal = {Angewandte Chemie International Edition},
+  volume = {59},
+  number = {10},
+  pages = {3956--3960},
+  year = {2020},
+  doi = {10.1002/anie.201915555}
+}
+
+%% Foundational Tensegrity %%
+@article{liedl2010self,
+  author = {Liedl, Tim and Högberg, Björn and Tytell, Jessica and Ingber, Donald E. and Shih, William M.},
+  title = {Self-assembly of three-dimensional prestressed tensegrity structures from DNA},
+  journal = {Nature Nanotechnology},
+  volume = {5},
+  number = {7},
+  pages = {476--483},
+  year = {2010},
+  doi = {10.1038/nnano.2010.107}
+}
+
+%% Nanoscopic Force Clamp %%
+@article{nickels2016molecular,
+  author = {Nickels, Philipp C. and Wünsch, Beatriz and Holzmeister, Philipp and Bae, Wooli and Kneer, Laura M. and Grohmann, David and Tinnefeld, Philip and Liedl, Tim},
+  title = {Molecular force spectroscopy with a DNA origami-based nanoscopic force clamp},
+  journal = {Science},
+  volume = {354},
+  number = {6310},
+  pages = {305--307},
+  year = {2016},
+  doi = {10.1126/science.aah5974}
+}</pre>
+                                                    <button id="copy-tension-bibtex" class="btn btn-outline-primary btn-sm" type="button">
+                                                        <i class="fa-regular fa-copy me-2"></i>Copy Tension BibTeX
                                                     </button>
                                                 </div>
                                             </div>

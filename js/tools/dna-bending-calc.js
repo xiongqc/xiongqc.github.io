@@ -174,9 +174,9 @@
 		}
 	}
 
-	function copyToolsCitation() {
-		var citation = document.getElementById("bibtex-bundle").innerText,
-			button = document.getElementById("copy-citation"),
+	function copyBendingCitation() {
+		var citation = document.getElementById("bending-bibtex").innerText,
+			button = document.getElementById("copy-bending-bibtex"),
 			originalHtml = button.innerHTML,
 			setCopied = function () {
 				button.innerHTML = '<i class="fa-solid fa-check me-2"></i>Copied';
@@ -224,14 +224,14 @@
 
 	function initDnaBendingCalculator() {
 		var calculateButton = document.getElementById("angle-calculate"),
-			copyButton = document.getElementById("copy-citation");
+			copyButton = document.getElementById("copy-bending-bibtex");
 
 		if (calculateButton) {
 			calculateButton.addEventListener("click", renderBendingAngleCalculation);
 		}
 
 		if (copyButton) {
-			copyButton.addEventListener("click", copyToolsCitation);
+			copyButton.addEventListener("click", copyBendingCitation);
 		}
 	}
 
