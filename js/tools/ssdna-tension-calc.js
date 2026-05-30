@@ -7,6 +7,15 @@
 (function () {
 	"use strict";
 
+	var TENSION_LOG_COLUMNS = [
+		{ label: "Step", width: 8 },
+		{ label: "Force (N)", width: 18 },
+		{ label: "Force (pN)", width: 14 },
+		{ label: "Modeled Extension (m)", width: 24 },
+		{ label: "Extension (nm)", width: 18 },
+		{ label: "Abs Error (m)", width: 16 }
+	];
+
 	function x(f, Lc, Lk, kb, T, K) {
 		return Lc * (1 / Math.tanh((f * Lk) / (kb * T)) - (kb * T) / (f * Lk)) * (1 + f / K);
 	}
@@ -47,6 +56,18 @@
 
 	function formatPiconewtonsForBanner(value) {
 		return (value * 1E12).toFixed(1);
+	}
+
+	function formatPaddedRow(values, columns) {
+		return values.map(function (value, index) {
+			return String(value).padEnd(columns[index].width);
+		}).join("");
+	}
+
+	function buildSeparator(columns) {
+		return columns.map(function (column) {
+			return "".padEnd(column.width, "-");
+		}).join("");
 	}
 
 	function calculateSsdnaTension() {
@@ -99,19 +120,21 @@
 				"Absolute error: " + formatScientific(best.error, 4) + " m",
 				"Contour length: " + formatScientific(calculation.Lc, 4) + " m (" + formatNanometers(calculation.Lc) + " nm)",
 				"",
-				"Step\tForce(N)\t\tForce(pN)\tModeled Extension(m)\tExtension(nm)\tAbs Error(m)",
-				"------------------------------------------------------------------------------------------"
+				formatPaddedRow(TENSION_LOG_COLUMNS.map(function (column) {
+					return column.label;
+				}), TENSION_LOG_COLUMNS),
+				buildSeparator(TENSION_LOG_COLUMNS)
 			];
 
 		calculation.evaluations.forEach(function (evaluation) {
-			rows.push(
-				evaluation.step + "\t" +
-				formatScientific(evaluation.force, 4) + "\t" +
-				formatPiconewtons(evaluation.force) + "\t\t" +
-				formatScientific(evaluation.extension, 4) + "\t\t" +
-				formatNanometers(evaluation.extension) + "\t\t" +
+			rows.push(formatPaddedRow([
+				evaluation.step,
+				formatScientific(evaluation.force, 4),
+				formatPiconewtons(evaluation.force),
+				formatScientific(evaluation.extension, 4),
+				formatNanometers(evaluation.extension),
 				formatScientific(evaluation.error, 4)
-			);
+			], TENSION_LOG_COLUMNS));
 		});
 
 		return rows.join("\n");

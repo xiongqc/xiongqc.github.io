@@ -21,6 +21,12 @@
 			};
 		}
 	};
+	var BENDING_LOG_COLUMNS = [
+		{ label: "Angle", width: 8 },
+		{ label: "Stretch Energy (J)", width: 24 },
+		{ label: "Bending Energy (J)", width: 24 },
+		{ label: "Total Energy (J)", width: 20 }
+	];
 
 	function formatSigFigs(number, sigFigs) {
 		if (number === 0) {
@@ -77,14 +83,28 @@
 		return value;
 	}
 
+	function formatPaddedRow(values, columns) {
+		return values.map(function (value, index) {
+			return String(value).padEnd(columns[index].width);
+		}).join("");
+	}
+
+	function buildSeparator(columns) {
+		return columns.map(function (column) {
+			return "".padEnd(column.width, "-");
+		}).join("");
+	}
+
 	function buildEnergyMatrixLog(helixTotalEnergy, angleInDegrees, helixStretchEnergy, helixBendingEnergy) {
-		helixTotalEnergy.push(helixStretchEnergy + helixBendingEnergy);
-		return (
-			angleInDegrees + "\t\t" +
-			formatSigFigs(helixStretchEnergy, 3) + "\t\t\t" +
-			formatSigFigs(helixBendingEnergy, 3) + "\t\t\t" +
-			formatSigFigs(helixTotalEnergy[helixTotalEnergy.length - 1], 6)
-		);
+		var helixEnergyTotal = helixStretchEnergy + helixBendingEnergy;
+
+		helixTotalEnergy.push(helixEnergyTotal);
+		return formatPaddedRow([
+			angleInDegrees,
+			formatSigFigs(helixStretchEnergy, 3),
+			formatSigFigs(helixBendingEnergy, 3),
+			formatSigFigs(helixEnergyTotal, 6)
+		], BENDING_LOG_COLUMNS);
 	}
 
 	function calculateBendingAngle() {
@@ -123,8 +143,10 @@
 
 		var helixTotalEnergy = [],
 			rows = [
-				"Angle(deg)\t\tHelix Stretch Energy\t\t\tHelix Bending Energy\t\t\tHelix Total Energy",
-				"----------------------------------------------------------------------------------"
+				formatPaddedRow(BENDING_LOG_COLUMNS.map(function (column) {
+					return column.label;
+				}), BENDING_LOG_COLUMNS),
+				buildSeparator(BENDING_LOG_COLUMNS)
 			];
 
 		for (var angleInDegrees = 1; angleInDegrees <= 360; angleInDegrees += 1) {
