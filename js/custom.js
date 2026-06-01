@@ -40,7 +40,7 @@ $(document).ready(function(){
 	++++++++++++++++++++++++++++++++++++++*/
 	var pager = {
 		pageContainer : $("div#main"),
-		pages : $("div.page"),
+		pages : $(".page"),
 		menuItems: $("ul#navigation"),
 		overlay : $("div#overlay"),
 		topz : "500",
